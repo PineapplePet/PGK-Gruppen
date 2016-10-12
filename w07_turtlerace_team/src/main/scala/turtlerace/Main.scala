@@ -13,5 +13,7 @@ object Main {
     }
     w.printRacers(rVector.toVector, w.getStartX, "Racers")
 
+    TurtleRace.race(rVector, w, "Kvartsfinal")
+
   }
 }

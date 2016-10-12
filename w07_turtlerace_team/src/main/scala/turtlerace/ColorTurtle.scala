@@ -11,7 +11,7 @@ class ColorTurtle(window: SimpleWindow,
   override def forward(length: Double): Unit = {
     val windowOriginalColor = window.getLineColor
     window.setLineColor(color)
-    forward(length)
+    super.forward(length)
     window.setLineColor(windowOriginalColor)
   }
 }

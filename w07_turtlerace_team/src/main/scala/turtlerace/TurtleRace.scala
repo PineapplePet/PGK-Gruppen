@@ -18,8 +18,11 @@ object TurtleRace {
         if (turtles(i).x < rw.getEndX) {
           turtles(i).raceStep()
         }
-        winners += turtles(i)
+        else {
+          winners += turtles(i)
+        }
       }
+      SimpleWindow.delay(50)
     }
     winners.toList
   }
