@@ -17,7 +17,7 @@ class RaceTurtle(window: RaceWindow,
     * Takes one step of a random length 1 to 5
     */
   def raceStep(): Unit = {
-    forward(rand.nextInt(5))
+    forward(rand.nextInt(5) + 1)
   }
 
   /**
@@ -25,7 +25,7 @@ class RaceTurtle(window: RaceWindow,
     * To be used before each race
     */
   def restart: Unit = {
-    jumpTo(window.getStartX, window.getStartY(nbr)
+    jumpTo(Point(window.getStartX, window.getStartY(nbr)))
   }
 
   override def toString: String = s"Trait: #$nbr Name: $name"
