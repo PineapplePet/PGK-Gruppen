@@ -4,7 +4,7 @@ import java.awt.{Color, color}
 import java.io.File
 import javax.imageio.ImageIO
 
-class RaceWindow extends SimpleWindow(800,400,"Race"){
+class RaceWindow extends SimpleWindow(800,600,"Race"){
 
   private val startX = 50
   private val endX = 750
@@ -21,7 +21,7 @@ class RaceWindow extends SimpleWindow(800,400,"Race"){
     drawImage(f2)
     for(i <- 1 to 8){
 
-      moveTo(60, i*40 + 10)
+      moveTo(60, i*40 + 30)
       writeStartNumbers(i.toString)
 
     }
@@ -30,7 +30,7 @@ class RaceWindow extends SimpleWindow(800,400,"Race"){
   /**
    * Returns the Y-coordinate for the turtle with start number n
    */
-  def getStartY(n: Int): Int = { n*40 + 10}
+  def getStartY(n: Int): Int = { n*40 + 30}
   
   /**
    * Returns the X-coordinate of the starting position
