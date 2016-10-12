@@ -42,10 +42,10 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
     val newLine = 15
     moveTo(x, 420)
     writeText(titel)
-    var i = 1
-    while(i < 9) {
-      moveTo(x, 420 + newLine * i)
-      writeText(s"$i." + vector(i))
+    var i = 0
+    while(i < 8) {
+      moveTo(x, 420 + newLine * (i+1))
+      writeText(s"$i. " + vector(i))
       i += 1
     }
 
