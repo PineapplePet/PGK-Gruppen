@@ -1,4 +1,4 @@
-package turtlegraphics
+package turtlerace
 
 import cslib.window.SimpleWindow
 

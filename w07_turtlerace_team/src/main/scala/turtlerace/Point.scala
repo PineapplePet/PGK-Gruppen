@@ -1,4 +1,4 @@
-package turtlegraphics
+package turtlerace
 
 /** Represents a single Point in the x,y plane. */
 case class Point(val x: Double, val y: Double) {
