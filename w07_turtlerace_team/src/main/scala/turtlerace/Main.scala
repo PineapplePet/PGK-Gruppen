@@ -7,5 +7,6 @@ object Main {
 
     val w = new RaceWindow
     w.draw
+
   }
 }
