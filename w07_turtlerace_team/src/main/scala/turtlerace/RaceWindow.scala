@@ -16,6 +16,8 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
   /**
    * Draws a race in the RaceWindow
    */
+
+
   def draw: Unit = {
 
     drawImage(f2)
@@ -25,6 +27,14 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
       writeStartNumbers(i.toString)
 
     }
+  }
+
+  def printTitle(title: String): Unit = {
+
+    moveTo(50, 10)
+    writeStartNumbers(title)
+
+
   }
   
   /**
