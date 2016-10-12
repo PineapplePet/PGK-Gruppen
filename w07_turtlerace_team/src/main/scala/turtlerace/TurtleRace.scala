@@ -3,7 +3,7 @@ package turtlerace;
 import scala.collection.mutable.ArrayBuffer
 import cslib.window._
 
-object TurtleRace extends RaceTurtle{
+object TurtleRace extends RaceTurtle(window:, nbr, name){
   /**
     * Perform a race between eight turtles and returns the turtles in finishing order
     */
@@ -14,6 +14,6 @@ object TurtleRace extends RaceTurtle{
     while (position.x < 750) {
       raceStep()
     }
-    winners += RaceTurtle
+    winners += RaceTurtles
   }
 }

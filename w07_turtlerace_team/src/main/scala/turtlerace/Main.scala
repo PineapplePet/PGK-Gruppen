@@ -8,5 +8,10 @@ object Main {
     val w = new RaceWindow
     w.draw
 
+    val rVector = for(i <- 1 to 8) yield {
+       new RaceTurtle(w, Point(w.getStartX, w.getStartY(i)),  nbr = i, name = s"$i")
+    }
+    w.printRacers(rVector.toVector, w.getStartX, "Racers")
+
   }
 }

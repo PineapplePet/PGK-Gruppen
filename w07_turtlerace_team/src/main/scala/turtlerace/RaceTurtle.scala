@@ -7,7 +7,7 @@ class RaceTurtle(window: RaceWindow,
                  position: Point = Point(0, 0),
                  angle: Double = 0,
                  isPenDown: Boolean = false,
-                 color: java.awt.Color,
+                 color: java.awt.Color = java.awt.Color.CYAN,
                  var nbr: Int,
                  val name: String) extends ColorTurtle(window, position, angle, isPenDown, color) {
 
