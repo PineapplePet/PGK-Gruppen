@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
 import java.util.concurrent.*;
-
+//hej
 /**
  * A simple window to draw in, used in "Objektorienterad programmering och
  * Java".
