@@ -1,5 +1,4 @@
 package turtlerace
-import
 
 object Main {
   def main(args : Array[String]): Unit = ???
