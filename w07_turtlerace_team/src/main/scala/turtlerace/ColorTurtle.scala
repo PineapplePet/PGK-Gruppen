@@ -1,5 +1,10 @@
 package turtlerace
 
-class ColorTurtle extends Turtle {
+class ColorTurtle(color: java.awt.Color) extends Turtle {
+
+  override def forward: Unit = {
+
+
+  }
 
 }
