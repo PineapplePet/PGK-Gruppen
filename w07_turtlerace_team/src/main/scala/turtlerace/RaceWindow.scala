@@ -44,10 +44,11 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
     writeText(titel)
     var i = 1
     while(i < 9) {
-      writeText(s"$i." + vector(i))
       moveTo(x, 420 + newLine * i)
+      writeText(s"$i." + vector(i))
       i += 1
     }
+
   }
 
   /**
