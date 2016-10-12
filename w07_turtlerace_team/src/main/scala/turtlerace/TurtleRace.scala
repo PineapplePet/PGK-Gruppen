@@ -7,5 +7,6 @@ object TurtleRace {
   /**
    * Perform a race between eight turtles and returns the turtles in finishing order
    */
-  def race(turtles: Seq[RaceTurtle], rw: RaceWindow, title: String): List[RaceTurtle] = ???
+  def race(turtles: Seq[RaceTurtle], rw: RaceWindow, title: String): List[RaceTurtle] = 
+    var winners = ArrayBuffer.empty[]
 }
