@@ -1,17 +1,23 @@
 package turtlerace
 
 import cslib.window.SimpleWindow
-
 import scala.util.Random
 
-class RaceTurtle(private val w: RaceWindow, var nbr: Int, val name: String) extends Turtle(w: SimpleWindow, Point(w.getStartX, w.getStartY(nbr)), 0, true) {
+class RaceTurtle(window: RaceWindow,
+                 position: Point = Point(0, 0),
+                 angle: Double = 0,
+                 isPenDown: Boolean = false,
+                 color: java.awt.Color,
+                 var nbr: Int,
+                 val name: String) extends ColorTurtle(window, position, angle, isPenDown, color) {
+
   val rand = new Random()
 
   /**
     * Takes one step of a random length 1 to 5
     */
   def raceStep(): Unit = {
-    Turtle.forward(rand.nextInt(5))
+    forward(rand.nextInt(5))
   }
 
   /**
@@ -19,8 +25,8 @@ class RaceTurtle(private val w: RaceWindow, var nbr: Int, val name: String) exte
     * To be used before each race
     */
   def restart: Unit = {
-      Turtle.jumpTo(w.getStartX, w.getStartY(nbr))
+    jumpTo(window.getStartX, window.getStartY(nbr)
   }
 
-  override def toString: String = ???
+  override def toString: String = s"Trait: #$nbr Name: $name"
 }
