@@ -9,10 +9,11 @@ object TurtleRace extends RaceTurtle{
     */
   def race(turtles: Seq[RaceTurtle], rw: RaceWindow, title: String): List[RaceTurtle] = {
     rw.printRacers(turtles, rw.getStartX, )
+    rw.printTitle(title)
     var winners = ArrayBuffer.empty[RaceTurtle]
     while (position.x < 750) {
       raceStep()
     }
-    
+    winners += RaceTurtle
   }
 }
