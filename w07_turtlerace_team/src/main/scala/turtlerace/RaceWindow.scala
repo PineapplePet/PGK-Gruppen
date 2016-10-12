@@ -26,7 +26,17 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
 
     }
   }
-  
+
+  /**
+    * Returns the RaceTurtles in the race in a diagram underneath the race.
+    */
+  def printRacers(vector: Vector[RaceTurtle], x: Int, titel: String): Unit = { //Racingbanan är 400 px hög
+    RaceWindow.writeText(titel)
+    var i = 1
+    while(i < 9)
+      println(s"$i." + vector(i))
+  }
+
   /**
    * Returns the Y-coordinate for the turtle with start number n
    */
