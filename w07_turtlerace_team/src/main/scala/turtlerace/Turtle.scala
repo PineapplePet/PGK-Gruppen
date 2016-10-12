@@ -12,15 +12,9 @@ import cslib.window.SimpleWindow
   * @param isPenDown A boolean representing the turtle's pen position. True if
   *                  the pen is down. */
 class Turtle(window: SimpleWindow,
-             var position: Point = Point(0, 0),
-             private var angle: Double = 0,
-             private var isPenDown: Boolean = false) {
-  /*orginal
-  class Turtle(window: SimpleWindow,
              private var position: Point = Point(0, 0),
              private var angle: Double = 0,
              private var isPenDown: Boolean = false) {
-   */
 
   /** Gets the Turtle's current pixel position on the x axis */
   def x: Int = position.x.toInt
