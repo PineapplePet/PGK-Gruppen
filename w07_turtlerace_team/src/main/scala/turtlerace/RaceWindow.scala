@@ -39,13 +39,15 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
     * Returns the RaceTurtles in the race in a diagram underneath the race.
     */
   def printRacers(vector: Vector[RaceTurtle], x: Int, titel: String): Unit = { //Racingbanan är 400 px hög
-    var newLine = 15
+    val newLine = 15
     moveTo(x, 420)
     writeText(titel)
     var i = 1
-    while(i < 9)
+    while(i < 9) {
       writeText(s"$i." + vector(i))
       moveTo(x, 420 + newLine * i)
+      i += 1
+    }
   }
 
   /**
