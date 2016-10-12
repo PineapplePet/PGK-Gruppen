@@ -5,7 +5,7 @@ import cslib.window.SimpleWindow
 class ColorTurtle(window: SimpleWindow,
                   position: Point = Point(0, 0),
                   angle: Double = 0,
-                  isPenDown: Boolean = false,
+                  isPenDown: Boolean = true, //ändra till false om man vill ha groda
                   private var color: java.awt.Color) extends Turtle(window, position, angle, isPenDown) {
 
   override def forward(length: Double): Unit = {
