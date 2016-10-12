@@ -27,6 +27,14 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
     }
   }
 
+  def printTitle(title: String): Unit ={
+
+  moveTo(50, 10)
+    writeStartNumbers(title)
+
+
+  }
+
   /**
     * Returns the RaceTurtles in the race in a diagram underneath the race.
     */
