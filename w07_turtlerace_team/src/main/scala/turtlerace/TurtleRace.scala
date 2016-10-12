@@ -8,7 +8,7 @@ object TurtleRace {
     * Perform a race between eight turtles and returns the turtles in finishing order
     */
   def race(turtles: Seq[RaceTurtle], rw: RaceWindow, title: String): List[RaceTurtle] = {
-    rw.printRacers(turtles.toVector, rw.getStartX, title)
+    rw.printRacers(turtles.toVector, rw.getStartX, "Racers")
     rw.printTitle(title)
 
     var winners = ArrayBuffer.empty[RaceTurtle]
@@ -18,7 +18,7 @@ object TurtleRace {
         if (turtles(i).x < rw.getEndX) {
           turtles(i).raceStep()
         }
-        else {
+        else if (!winners.contains(turtles(i))) {
           winners += turtles(i)
         }
       }

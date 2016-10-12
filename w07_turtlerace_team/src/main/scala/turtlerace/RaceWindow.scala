@@ -29,7 +29,7 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
 
   def printTitle(title: String): Unit ={
 
-  moveTo(50, 10)
+  moveTo(50, 20)
     writeStartNumbers(title)
 
 
@@ -40,11 +40,11 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
     */
   def printRacers(vector: Vector[RaceTurtle], x: Int, titel: String): Unit = { //Racingbanan är 400 px hög
     val newLine = 15
-    moveTo(x, 420)
+    moveTo(x, 450)
     writeText(titel)
     var i = 0
     while(i < 8) {
-      moveTo(x, 420 + newLine * (i+1))
+      moveTo(x, 450 + newLine * (i+1))
       writeText(s"$i. " + vector(i))
       i += 1
     }
