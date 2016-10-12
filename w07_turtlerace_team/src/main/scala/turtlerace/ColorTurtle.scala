@@ -9,7 +9,7 @@ class ColorTurtle(window: SimpleWindow,
                   private var color: java.awt.Color) extends Turtle(window, position, angle, isPenDown) {
 
 
-  override def forward: Unit = {
+  override def forward(length: Double): Unit = {
 
 
   }
