@@ -162,6 +162,11 @@ public class SimpleWindow {
 		canvas.writeText(txt);
 	}
 
+
+	public void writeStartNumbers(String txt) {
+		canvas.writeStartText(txt);
+	}
+
 	/**
 	 * Draws a bitmap image at the current position.
 	 *
@@ -478,9 +483,20 @@ class SWCanvas extends JPanel {
 	void writeText(String txt) {
 		Graphics2D g = img.createGraphics();
 		g.setColor(lineColor);
+
 		g.drawString(txt, x, y);
 		repaint();
 	}
+
+
+	void writeStartText(String txt) {
+		Graphics2D g = img.createGraphics();
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 16));
+		g.drawString(txt, x, y);
+		repaint();
+	}
+
 
 	void drawImage(Image image) {
 		Graphics2D g = img.createGraphics();
