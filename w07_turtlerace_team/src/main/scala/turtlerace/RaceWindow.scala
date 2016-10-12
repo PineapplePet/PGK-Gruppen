@@ -10,13 +10,14 @@ class RaceWindow extends SimpleWindow(800,400,"Race"){
   private val endX = 750
 
 
-  val seelpic = ImageIO.read(new File("/h/d7/s/ol4084da-s/ProgZip/workspace/PGK-Gruppen/w07_turtlerace_team/src/main/scala/turtlerace/racebana.png"))
+  val f = ImageIO.read(new File(getClass.getClassLoader.getResource("turtlerace/racebana.png").getPath))
+
   /**
    * Draws a race in the RaceWindow
    */
   def draw: Unit = {
 
-    drawImage(seelpic)
+    drawImage(f)
   }
   
   /**
