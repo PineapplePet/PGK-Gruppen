@@ -14,7 +14,10 @@ class RaceWindow extends SimpleWindow(800,400,"Race"){
   /**
    * Draws a race in the RaceWindow
    */
-  def draw: Unit = ???
+  def draw: Unit = {
+
+    drawImage(seelpic)
+  }
   
   /**
    * Returns the Y-coordinate for the turtle with start number n
