@@ -16,6 +16,7 @@ class Turtle(window: SimpleWindow,
              private var angle: Double = 0,
              private var isPenDown: Boolean = false) {
 
+
   /** Gets the Turtle's current pixel position on the x axis */
   def x: Int = position.x.toInt
 

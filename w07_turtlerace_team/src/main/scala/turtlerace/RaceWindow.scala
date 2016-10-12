@@ -16,8 +16,6 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
   /**
    * Draws a race in the RaceWindow
    */
-
-
   def draw: Unit = {
 
     drawImage(f2)
@@ -29,14 +27,19 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
     }
   }
 
-  def printTitle(title: String): Unit = {
-
-    moveTo(50, 10)
-    writeStartNumbers(title)
-
-
+  /**
+    * Returns the RaceTurtles in the race in a diagram underneath the race.
+    */
+  def printRacers(vector: Vector[RaceTurtle], x: Int, titel: String): Unit = { //Racingbanan är 400 px hög
+    var newLine = 15
+    moveTo(x, 420)
+    writeText(titel)
+    var i = 1
+    while(i < 9)
+      writeText(s"$i." + vector(i))
+      moveTo(x, 420 + newLine * i)
   }
-  
+
   /**
    * Returns the Y-coordinate for the turtle with start number n
    */
