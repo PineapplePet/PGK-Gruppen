@@ -8,10 +8,10 @@ class ColorTurtle(window: SimpleWindow,
                   private var isPenDown: Boolean = false,
                   private var color: java.awt.Color) extends Turtle(window, position, angle, isPenDown) {
 
-
   override def forward(length: Double): Unit = {
-
-
+    val windowOriginalColor = window.getLineColor
+    window.setLineColor(color)
+    forward(length)
+    window.setLineColor(windowOriginalColor)
   }
-
 }
