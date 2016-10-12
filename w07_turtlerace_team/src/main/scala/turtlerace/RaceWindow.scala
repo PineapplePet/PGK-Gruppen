@@ -1,7 +1,7 @@
 package turtlerace;
 import cslib.window._
 
-class RaceWindow {
+class RaceWindow extends SimpleWindow{
   private val startX = ???
   private val endX = ???
   /**
