@@ -28,6 +28,20 @@ class RaceTurtle(window: RaceWindow,
   }
 
   /**
+    * Takes one step of a length, x: Int (for use within traits)
+    */
+  def raceStep(x: Int): Unit = {
+    forward(x)
+  }
+
+  /**
+    * Stops the Turtle
+    */
+  def stepStop(): Unit = {
+    forward(0)
+  }
+
+  /**
     * Restarts the turtle at the finish line.
     * To be used before each race
     */

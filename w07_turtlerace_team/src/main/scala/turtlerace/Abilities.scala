@@ -1,22 +1,22 @@
 package turtlerace
 
-trait Dizziness extends RaceTurtle {  //behöver ej ha med parametrar för trait då de aldrig efterfrågas vid inmixning.
-                                      // Parametrar efterfrågas bara vid inmixning.
+                                      //behöver ej ha med parametrar för trait då de aldrig efterfrågas vid inmixning.
+trait Snurrig extends RaceTurtle {  // Parametrar efterfrågas bara vid inmixning.
   override def raceStep() = {
 
   }
 
-  override def toString: String = super.toString + " Dizzy"
+  override def toString: String = super.toString + " Snurrig"
 }
 
-trait x extends RaceTurtle {
+trait Koksare extends RaceTurtle {
 override def raceStep() = ???
 
-  override def toString: String = super.toString + " Dizzy"
+  override def toString: String = super.toString + " Koksare"
 }
 
-trait y extends RaceTurtle {
+trait KeD extends RaceTurtle {
   override def raceStep() = ???
 
-  override def toString: String = super.toString + " Dizzy"
+  override def toString: String = super.toString + " Kvitt eller Dubbelt"
 }
