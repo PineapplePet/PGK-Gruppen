@@ -28,17 +28,21 @@ class RaceTurtle(window: RaceWindow,
   }
 
   /**
-    * Takes one step of a length, x: Int (for use within traits)
+    * Takes one step of a length, x: Int. (for use within traits)
     */
   def raceStep(x: Int): Unit = {
     forward(x)
   }
 
   /**
-    * Stops the Turtle
+    * Stops the Turtle a certain amount of ticks, default 3 ticks
     */
-  def stepStop(): Unit = {
-    forward(0)
+  def stepStop(ticks: Int = 3): Unit = {
+    var i = 0
+    while(i < ticks){
+      forward(0)
+      i += 1
+    }
   }
 
   /**
