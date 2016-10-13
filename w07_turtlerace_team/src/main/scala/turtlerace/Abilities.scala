@@ -16,7 +16,7 @@ trait Dizzy extends RaceTurtle {    // Parametrar efterfrågas bara vid inmixnin
   override def toString: String = super.toString + " Dizzy"
 }
 
-trait Koksaren extends RaceTurtle {
+trait Koks extends RaceTurtle {
   val stepR = new Random()
   override def raceStep() = {
     for(i <- 1 to 10){
@@ -27,7 +27,7 @@ trait Koksaren extends RaceTurtle {
     }
     if(math.random > 0.5){
       turnNorth()
-      turnRight(stepR(180))
+      turnRight(stepR.nextInt(180) + 1)
       forward(50) //drugHybrisRage
     }
   }

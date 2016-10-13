@@ -1,5 +1,6 @@
 package turtlerace
 import scala.collection.mutable.ArrayBuffer
+import scala.util.Random
 
 
 
@@ -9,9 +10,19 @@ object Main {
     val w = new RaceWindow
     w.draw
 
+    val rand = new Random //Randomizing Traits for RaceTurtles
+    var rVar: Int //slumptal mellan 0, 1, 2 i for-loopen nedan
     val rVector = for(i <- 1 to 8) yield {
-       new RaceTurtle(w,  nbr = i, name = s"$i")
+      rVar = rand.nextInt(3)
+      if(rVar == 0){
+        new RaceTurtle(w,  nbr = i, name = s"$i") with Dizzy
+      }else if(rVar == 1){
+        new RaceTurtle(w,  nbr = i, name = s"$i") with KeD
+      }else if(rVar == 2){
+        new RaceTurtle(w,  nbr = i, name = s"$i") with Koks
+      }
     }
+
     val winnersKvartsfinal = TurtleRace.race(rVector, w, "Kvartsfinal").toVector
     w.printRacers(winnersKvartsfinal, w.getEndX - 100, "Results")
     println("Kvartsfinal")
@@ -19,12 +30,13 @@ object Main {
       println(winnersKvartsfinal(i))
     }
 
-    var fyrabästa = ArrayBuffer.empty[RaceTurtle]
+    var fyraBästa = ArrayBuffer.empty[RaceTurtle]
     for (i <- 0 to 3) {
-      fyrabästa += winnersKvartsfinal(i)
+      fyraBästa += winnersKvartsfinal(i)
     }
     w.clear()
     w.draw()
+
 
     // val winnersKvartsfinal2 = ???
   }
