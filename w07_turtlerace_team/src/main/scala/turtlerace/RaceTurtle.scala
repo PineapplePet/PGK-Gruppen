@@ -35,5 +35,5 @@ class RaceTurtle(window: RaceWindow,
     jumpTo(Point(window.getStartX, window.getStartY(nbr)))
   }
 
-  override def toString: String = s"Trait: #$nbr Name: $name"
+  override def toString: String = s"#$nbr Name: $name"
 }
