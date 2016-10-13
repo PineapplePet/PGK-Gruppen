@@ -17,7 +17,6 @@ object Main {
     for (i <- 0 to 7) {
       println(winnersKvartsfinal(i))
     }
-    //hej
     var fyrabästa = ArrayBuffer.empty[RaceTurtle]
     for (i <- 0 to 3) {
       fyrabästa += winnersKvartsfinal(i)
