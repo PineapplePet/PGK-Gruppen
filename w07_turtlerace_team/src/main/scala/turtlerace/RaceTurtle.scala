@@ -49,7 +49,9 @@ class RaceTurtle(window: RaceWindow,
     * Sekvens med namn tagna från .txt som innan varje race blandas.
     * sedan väljs de 8 första namnen ut och tilldelas RaceTurtle nbr i
     */
-  def NameSequence: String = ???
+  def NameSequence: Seq = {
+
+  }
 
   /**
     * Restarts the turtle at the finish line.

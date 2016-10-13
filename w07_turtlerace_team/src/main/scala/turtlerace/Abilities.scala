@@ -26,7 +26,7 @@ trait Abstinence extends RaceTurtle {
       forward(3) //drugHybrisRage
     }
   }
-  override def toString: String = super.toString + " Koksaren"
+  override def toString: String = super.toString + " Abstinence"
 }
 
 trait KeD extends RaceTurtle { //Går dubbelt så långt eller inget
