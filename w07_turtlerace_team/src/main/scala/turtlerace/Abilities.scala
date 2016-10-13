@@ -16,19 +16,14 @@ trait Dizzy extends RaceTurtle {    // Parametrar efterfrågas bara vid inmixnin
   override def toString: String = super.toString + " Dizzy"
 }
 
-trait Koks extends RaceTurtle {
+trait Abstinence extends RaceTurtle {
   val stepR = new Random()
   override def raceStep() = {
-    for(i <- 1 to 10){
-      forward(stepR.nextInt(5) + 1)
-    }
-    for(i <- 1 to 3){ //Waiting for the peak
-      forward(0)
-    }
+
     if(math.random > 0.5){
       turnNorth()
       turnRight(stepR.nextInt(180) + 1)
-      forward(50) //drugHybrisRage
+      forward(3) //drugHybrisRage
     }
   }
   override def toString: String = super.toString + " Koksaren"
@@ -37,8 +32,8 @@ trait Koks extends RaceTurtle {
 trait KeD extends RaceTurtle { //Går dubbelt så långt eller inget
   val stepR = new Random()
   override def raceStep() = {
-    if(stepR.nextInt(2) < 1){
-      forward((stepR.nextInt(5) + 1) * 2)
+    if(math.random < 0.5){
+      forward((stepR.nextInt(2) + 1) * 2)
     }else{
       forward(0)
     }

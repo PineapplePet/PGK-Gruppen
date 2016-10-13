@@ -3,6 +3,21 @@ PGK-Gruppen
 
 ### Grupplabb: Turtlerace_team
 
+##### Idéer att implementera, skriv namn efter varje förslag när du byggt på den:
+
+Implementera NameSequence i RaceTurtle. Skapa en txt fil som namnen till RaceTurtles hämtas ifrån.
+Namnen ska läggas i en Array/Vector/ArrayBuffer som sedan shufflas varpå de 8 första namnen tilldelas RaceTurtles i for-loopen i Main.
+
+Fler Abilities(Traits) behövs!
+
+Lägga till färger till varje RaceTurtle
+
+Kalibrera Traits så att ingen är för OP och fixa så att RaceTurtles inte kan gå utanför skärmen..
+
+Fixa så att n många RaceTurtles kan var med i TurtleRace
+
+Implementera
+
 ##### Arbetsfördelning:
 
 Uppgift 1:      Alex
@@ -16,5 +31,10 @@ Uppgift 4:      Niklas
 Uppgift Rulla Tummarna: De som inte gjort tidigare labbar ;)
 ___
 
-##### Problem med synk/push:
-Läs filen "SYNKA - IDE mot GitHub" om du är nyfiken/glömt hur man hanterar PUSH av en fil från IntelliJ/ScalaIDE mot GitHub då någon annan redan lagt upp en nyare version.
+Ändra denna ReadMe genom att ändra i w07/README.md
+
+
+
+
+
+
