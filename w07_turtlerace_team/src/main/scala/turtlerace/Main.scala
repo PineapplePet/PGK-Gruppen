@@ -15,6 +15,7 @@ object Main {
 
     val rand = new Random //Randomizing Traits for RaceTurtles
     var rVar = 0 //slumptal mellan 0, 1, 2 i for-loopen nedan
+    val raceNames = new
     val rVector = for(i <- 1 to 8) yield {
       rVar = rand.nextInt(4)
       if(rVar == 0){

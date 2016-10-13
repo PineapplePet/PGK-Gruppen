@@ -27,3 +27,10 @@ object TurtleRace {
     winners.toList
   }
 }
+
+/**
+  * Sekvens med namn tagna från .txt // Måste göras klart!
+  */
+object NameSequence{
+    val nameSeq = FileUtils.readLines("RaceTurtleNames.txt")
+}

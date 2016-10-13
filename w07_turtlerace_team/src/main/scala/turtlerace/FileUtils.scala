@@ -1,6 +1,7 @@
 package turtlerace
 
 object FileUtils {
+  import scala.util.Random
   import java.nio.file.{ Paths, Files }
 
   def save(s: String, fileName: String): Unit =
@@ -19,3 +20,4 @@ object FileUtils {
     words.filterNot(_.isEmpty).toVector
   }
 }
+
