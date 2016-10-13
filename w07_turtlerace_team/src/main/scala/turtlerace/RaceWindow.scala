@@ -1,6 +1,5 @@
 package turtlerace
 import cslib.window._
-import java.awt.{Color, color}
 import java.io.File
 import javax.imageio.ImageIO
 
