@@ -11,8 +11,8 @@ object Main {
     val rVector = for(i <- 1 to 8) yield {
        new RaceTurtle(w, Point(w.getStartX, w.getStartY(i)),  nbr = i, name = s"$i")
     }
-    val winners = TurtleRace.race(rVector, w, "Kvartsfinal").toVector
-    w.printRacers(winners, w.getEndX - 100, "Winners")
+    val winnersKvartsfinal = TurtleRace.race(rVector, w, "Kvartsfinal").toVector
+    w.printRacers(winnersKvartsfinal, w.getEndX - 100, "Results")
 
   }
 }
