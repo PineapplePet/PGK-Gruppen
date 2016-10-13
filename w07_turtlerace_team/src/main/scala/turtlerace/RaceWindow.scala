@@ -13,9 +13,11 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
   val f = ImageIO.read(new File(getClass.getClassLoader.getResource("turtlerace/racebana.png").getPath))
   val f2 = ImageIO.read(new File(getClass.getClassLoader.getResource("turtlerace/racebana2.png").getPath))
 
+
   /**
    * Draws a race in the RaceWindow
    */
+
   def draw: Unit = {
 
     drawImage(f2)

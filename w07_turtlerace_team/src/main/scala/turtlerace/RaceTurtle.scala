@@ -1,7 +1,20 @@
 package turtlerace
 
-import cslib.window.SimpleWindow
 import scala.util.Random
+
+/**
+  *
+  * @param window    The window the turtle should be placed in.
+  * @param position  A Point representing the turtle's starting coordinates.
+  * @param angle     The angle between the turtle direction and the X-axis
+  *                  measured in degrees. Positive degrees indicate a counter
+  *                  clockwise rotation.
+  * @param isPenDown A boolean representing the turtle's pen position. True if
+  *                  the pen is down.
+  * @param color     Färgen på linjen som dras bakom en turtle om isPenDown=true
+  * @param nbr       "ID"-nummer unikt för varje objekt av turtle
+  * @param name      Namnet på ett object av turtle
+  */
 
 class RaceTurtle(window: RaceWindow,
                  position: Point = Point(0, 0),

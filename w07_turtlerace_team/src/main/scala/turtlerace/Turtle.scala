@@ -10,7 +10,9 @@ import cslib.window.SimpleWindow
   *                  measured in degrees. Positive degrees indicate a counter
   *                  clockwise rotation.
   * @param isPenDown A boolean representing the turtle's pen position. True if
-  *                  the pen is down. */
+  *                  the pen is down.
+  */
+
 class Turtle(window: SimpleWindow,
              private var position: Point = Point(0, 0),
              private var angle: Double = 0,
