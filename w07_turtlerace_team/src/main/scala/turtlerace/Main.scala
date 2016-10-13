@@ -26,6 +26,6 @@ object Main {
     w.clear()
     w.draw()
 
-    val winnersKvartsfinal2 = ???
+    // val winnersKvartsfinal2 = ???
   }
 }
