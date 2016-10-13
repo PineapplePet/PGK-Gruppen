@@ -22,6 +22,5 @@ object Main {
     for (i <- 0 to 3) {
       fyrabästa += winnersKvartsfinal(i)
     }
-    print(fyrabästa)
   }
 }
