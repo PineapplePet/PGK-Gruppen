@@ -29,6 +29,19 @@ trait Abstinence extends RaceTurtle {
   override def toString: String = super.toString + " Abstinence"
 }
 
+
+trait Portalberoende extends RaceTurtle {
+  val stepR = new Random()
+  override def raceStep() = {
+
+      penUp()
+      forward(3) //drugHybrisRage
+      penDown()
+    forward(1)
+  }
+  override def toString: String = super.toString + "Portalberoende"
+}
+
 trait KeD extends RaceTurtle { //Går dubbelt så långt eller inget
   val stepR = new Random()
   override def raceStep() = {
