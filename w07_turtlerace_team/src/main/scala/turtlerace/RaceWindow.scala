@@ -1,4 +1,4 @@
-package turtlerace;
+package turtlerace
 import cslib.window._
 import java.awt.{Color, color}
 import java.io.File
@@ -22,19 +22,14 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
 
     drawImage(f2)
     for(i <- 1 to 8){
-
       moveTo(60, i*40 + 30)
       writeStartNumbers(i.toString)
-
     }
   }
 
-  def printTitle(title: String): Unit ={
-
-  moveTo(50, 20)
+  def printTitle(title: String): Unit = {
+    moveTo(50, 20)
     writeStartNumbers(title)
-
-
   }
 
   /**
@@ -61,10 +56,10 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
   /**
    * Returns the X-coordinate of the starting position
    */
-  def getStartX: Int = { startX}
+  def getStartX: Int = { startX }
   
   /**
    * Returns the X-coordinate of the finish line
    */
-  def getEndX: Int = { endX}
+  def getEndX: Int = { endX }
 }
