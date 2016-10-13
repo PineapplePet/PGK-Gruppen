@@ -23,5 +23,9 @@ object Main {
     for (i <- 0 to 3) {
       fyrabästa += winnersKvartsfinal(i)
     }
+    w.clear()
+    w.draw()
+
+    val winnersSemifinal = ???
   }
 }
