@@ -22,7 +22,7 @@ object TurtleRace {
           winners += turtles(i)
         }
       }
-      SimpleWindow.delay(50)
+      SimpleWindow.delay(25)
     }
     winners.toList
   }
