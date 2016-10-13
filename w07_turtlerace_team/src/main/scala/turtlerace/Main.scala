@@ -7,7 +7,7 @@ object Main {
     w.draw
 
     val rVector = for(i <- 1 to 8) yield {
-       new RaceTurtle(w, Point(w.getStartX, w.getStartY(i)),  nbr = i, name = s"$i")
+       new RaceTurtle(w,  nbr = i, name = s"$i")
     }
     val winnersKvartsfinal = TurtleRace.race(rVector, w, "Kvartsfinal").toVector
     w.printRacers(winnersKvartsfinal, w.getEndX - 100, "Results")

@@ -5,10 +5,6 @@ import scala.util.Random
 /**
   *
   * @param window    The window the turtle should be placed in.
-  * @param position  A Point representing the turtle's starting coordinates.
-  * @param angle     The angle between the turtle direction and the X-axis
-  *                  measured in degrees. Positive degrees indicate a counter
-  *                  clockwise rotation.
   * @param isPenDown A boolean representing the turtle's pen position. True if
   *                  the pen is down.
   * @param color     Färgen på linjen som dras bakom en turtle om isPenDown=true
@@ -17,12 +13,10 @@ import scala.util.Random
   */
 
 class RaceTurtle(window: RaceWindow,
-                 position: Point = Point(0, 0),
-                 angle: Double = 0,
                  isPenDown: Boolean = true, //ändra till false om man vill ha groda
                  color: java.awt.Color = java.awt.Color.CYAN,
                  var nbr: Int,
-                 val name: String) extends ColorTurtle(window, position, angle, isPenDown, color) {
+                 val name: String) extends ColorTurtle(window, position = Point(window.getStartX, window.getStartY(nbr)), angle = 0, isPenDown, color) {
 
   val rand = new Random()
 
