@@ -9,13 +9,17 @@ import scala.util.Random
 trait Dizzy extends RaceTurtle {    // Parametrar efterfrågas bara vid inmixning.
   val stepR = new Random() //får inte ha val utanför objektet.
   override def raceStep() = {
-
     if(math.random < 0.5){
       turnLeft(5)
     }else{
       turnRight(5)
     }
     forward(stepR.nextInt(5) + 1)
+    if (position.y > 450){
+      position = Point(position.x, this.window.f2.getHeight) //Gjort window
+    } else if (position.y < 0){
+      position = Point(position.x, 0)
+    }
   }
   override def toString: String = super.toString + " Dizzy"
 }
@@ -27,7 +31,7 @@ trait StockMarket extends RaceTurtle {
     if(math.random > 0.5){
       turnNorth()
       turnRight(stepR.nextInt(180) + 1)
-      forward(4) //drugHybrisRage
+      forward(4)
     }
   }
   override def toString: String = super.toString + " StockMarket"
@@ -51,13 +55,20 @@ trait KeD extends RaceTurtle { //Går dubbelt så långt eller inget
   val stepR = new Random()
   override def raceStep() = {
     if(math.random < 0.5){
-      forward((stepR.nextInt(2) + 1) * 2)
+      forward((stepR.nextInt(2) + 1) * 3)
     }else{
       forward(0)
     }
   }
 
   override def toString: String = super.toString + " Kvitt eller Dubbelt"
+}
+
+trait Ghostery extends RaceTurtle { //Mall för trait
+
+  override def raceStep() = ??? //Define your traits characteristics
+
+  override def toString: String = super.toString + " nameOfTrait"
 }
 
 trait nameOfTrait extends RaceTurtle { //Mall för trait

@@ -1,7 +1,6 @@
 package turtlerace
 
 object FileUtils {
-  import java.awt.Color
   import java.nio.file.{ Paths, Files }
 
   def save(s: String, fileName: String): Unit =

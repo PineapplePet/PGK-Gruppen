@@ -12,7 +12,7 @@ import scala.util.Random
   * @param name      Namnet på ett object av turtle
   */
 
-class RaceTurtle(window: RaceWindow,
+class RaceTurtle(val window: RaceWindow,
                  isPenDown: Boolean = true, //ändra till false om man vill ha groda
                  color: java.awt.Color,
                  var nbr: Int,
