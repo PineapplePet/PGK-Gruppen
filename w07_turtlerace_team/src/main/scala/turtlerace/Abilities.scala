@@ -71,7 +71,7 @@ trait hax extends RaceTurtle { //fuskar och hoppar direkt till slutet (låg chan
   override def raceStep() = {
     //hoppar till mål (<1% chans) annars går 0.5 i x-led
     if (math.random < 0.01) {
-      position = Point(450, position.y)
+      position = Point(750, position.y)
     }
     else {
       forward(0.5)
