@@ -1,6 +1,6 @@
 package turtlerace
 import cslib.window._
-import java.io.File
+import java.io.{ByteArrayInputStream, File}
 import javax.imageio.ImageIO
 
 class RaceWindow extends SimpleWindow(800,600,"Race"){
@@ -33,7 +33,7 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
   /**
     * Returns the RaceTurtles in the race in a diagram underneath the race.
     */
-  def printRacers(vector: Vector[RaceTurtle], x: Int, titel: String): Unit = { //Racingbanan är 400 px hög
+  def printRacers(vector: Vector[RaceTurtle], x: Int, titel: String): Unit = {
     val newLine = 15
     moveTo(x, 450)
     writeText(titel)
@@ -60,4 +60,6 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
    * Returns the X-coordinate of the finish line
    */
   def getEndX: Int = { endX }
+
+
 }

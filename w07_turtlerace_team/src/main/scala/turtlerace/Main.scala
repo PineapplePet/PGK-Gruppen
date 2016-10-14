@@ -1,9 +1,9 @@
 package turtlerace
-import cslib.window.SimpleWindow
 
 import scala.collection.mutable.ArrayBuffer
-import scala.io.StdIn
 import scala.util.Random
+import java.net.URL
+import javax.sound.sampled._
 
 
 
