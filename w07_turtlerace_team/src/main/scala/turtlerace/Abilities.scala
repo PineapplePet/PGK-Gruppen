@@ -16,7 +16,6 @@ trait Dizzy extends RaceTurtle {    // Parametrar efterfrågas bara vid inmixnin
     var oldPosY = position.y
     forward(stepR.nextInt(5) + 1)
     if (position.y < 0 || position.y > window.f2.getHeight()){
-      println(s"$nbr (Dizzy) kom utanför! y: ${position.y}")
       turnNorth()
       turnRight(90)
       position = Point(position.x, oldPosY)
@@ -41,14 +40,20 @@ trait StockMarket extends RaceTurtle {
 
 trait Portalberoende extends RaceTurtle {
   val stepR = new Random()
-  val i = 0
+  var i = 0
   override def raceStep() = {
     if(i % 2 == 0){
       color = java.awt.Color.cyan
     } else {
       color = java.awt.Color.orange
     }
+    i += 1
+    if(i % 10 == 0){
       penUp()
+    }else{
+
+    }
+
       forward(stepR.nextInt(3) + 1)
       penDown()
     delay(10)
