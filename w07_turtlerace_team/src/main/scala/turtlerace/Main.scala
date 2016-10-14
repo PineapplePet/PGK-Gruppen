@@ -47,13 +47,11 @@ object Main {
 
     for (i <- 0 to 3)
       {TurtleRace.race(kvartsFinaler(i), w, s"Kvartsfinal $i+1")
-      w.clear()
+        w.waitForEvent()
+        w.clear()
         w.draw()
       }
-    
-
   }
-
     //var fyraBästa = ArrayBuffer.empty[RaceTurtle]
     //for (i <- 0 to 3) {
     // fyraBästa += winnersKvartsfinal(i)
