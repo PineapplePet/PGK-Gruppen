@@ -8,19 +8,19 @@ import scala.util.Random
 trait Dizzy extends RaceTurtle {    // Parametrar efterfrågas bara vid inmixning.
   val stepR = new Random() //får inte ha val utanför objektet.
   override def raceStep() = {
-    if (position.y > 450){
-      position = Point(position.x, this.window.f2.getHeight) //Gjort window
-    } else if (position.y < 0){
-      position = Point(position.x, 0)
-    }
-
-    if(math.random < 0.5){
+        if(math.random < 0.5){
       turnLeft(5)
     }else{
       turnRight(5)
     }
+    var oldPosY = position.y
     forward(stepR.nextInt(5) + 1)
-
+    if (position.y < 0 || position.y > window.f2.getHeight()){
+      println(s"$nbr (Dizzy) kom utanför! y: ${position.y}")
+      turnNorth()
+      turnRight(90)
+      position = Point(position.x, oldPosY)
+    }
   }
   override def toString: String = super.toString + " Dizzy"
 }

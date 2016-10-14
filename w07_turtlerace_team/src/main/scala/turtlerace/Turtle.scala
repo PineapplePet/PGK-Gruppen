@@ -14,7 +14,7 @@ import cslib.window.SimpleWindow
   */
 
 class Turtle(window: SimpleWindow,
-              var position: Point = Point(0, 0), //Hur får jag reda på position.y utan att göra denna publik?
+             var position: Point = Point(0, 0), //Hur får jag reda på position.y utan att göra denna publik?
              private var angle: Double = 0,
              private var isPenDown: Boolean = false) {
 
