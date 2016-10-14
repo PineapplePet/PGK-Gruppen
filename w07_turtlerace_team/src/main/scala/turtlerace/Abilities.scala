@@ -72,7 +72,7 @@ trait hax extends RaceTurtle { //fuskar och hoppar direkt till slutet (låg chan
     if (math.random < 0.01)
       position = Point(450, position.y)
     }
-    else if (math.random >= 0.01)  {
+    else (math.random >= 0.01)  {
        forward(0.5)
     }
 
