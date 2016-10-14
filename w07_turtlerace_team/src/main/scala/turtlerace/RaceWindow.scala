@@ -18,6 +18,7 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
 
   def draw(): Unit = {
 
+    moveTo(0,0)
     drawImage(f2)
     for(i <- 1 to 8){
       moveTo(60, i*40 + 30)
