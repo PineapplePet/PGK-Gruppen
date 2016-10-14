@@ -28,20 +28,27 @@ object TurtleRace {
   }
 }
 
-/**
-  * Returnerar sekvens med namn tagna från RaceTurtleNames.txt
-  */
-object NameSequence{
-    def nameSeq: Seq[String] = {
+object Sequence{
+  /**
+    * Returnerar sekvens med namn tagna från RaceTurtleNames.txt
+    */
+  def nameSeq: Seq[String] = {
       FileUtils.readLines("/h/d3/t/mas14dhu/Desktop/PGK-Gruppen/w07_turtlerace_team/src/main/scala/turtlerace/RaceTurtleNames.txt")
     }
-}
 
 /**
-  * Returnerar sekvens med färger från Turtle Colors.txt
+  * Returnerar sekvens med färger från RaceTurtleColors.txt
   */
-object ColorSequence{
-  def colSeq: Seq[String] = {
-    FileUtils.readLines()
+  def colorSeq: Seq[String] = {
+    FileUtils.readLines("/h/d3/t/mas14dhu/Desktop/PGK-Gruppen/w07_turtlerace_team/src/main/scala/turtlerace/RaceTurtleColors.txt")
+  }
+}
+
+object Translator{
+  /**
+    * Omvandlar colorSeq: Seq[String] -> colorSeq: Seq[java.awt.Color]
+    */
+  def color: Seq[java.awt.Color] = {
+
   }
 }
