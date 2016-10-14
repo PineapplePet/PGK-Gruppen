@@ -5,6 +5,8 @@ import scala.util.Random
 import java.net.URL
 import javax.sound.sampled._
 
+import cslib.window.SimpleWindow
+
 
 
 object Main {
@@ -23,7 +25,15 @@ object Main {
     var raceColors = Sequence.colorVector
     raceColors = scala.util.Random.shuffle(raceColors)
 
-    heat(w, 1, "Kvartsfinal1")
+
+    for (i <- 1 to 4) yield {
+      val lol = heat(w, 1, s"Kvartsfinal $i")
+      w.printRacers(lol, w.getEndX - 200, "Winners" )
+      SimpleWindow.delay(1500)
+      w.clear()
+      w.draw()
+    }
+
 
     def heat (window: RaceWindow, startNummer: Int, titel: String): Vector[RaceTurtle] = {
       val rVector = for (i <- 1 to 8) yield {

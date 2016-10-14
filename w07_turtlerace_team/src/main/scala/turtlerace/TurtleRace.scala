@@ -14,7 +14,7 @@ object TurtleRace {
 
     var winners = ArrayBuffer.empty[RaceTurtle]
 
-    while (winners.size < 8) {
+    while (winners.size < 4) {
       for (i <- 0 to 7) {
         if (turtles(i).x < rw.getEndX) {
           turtles(i).raceStep()
