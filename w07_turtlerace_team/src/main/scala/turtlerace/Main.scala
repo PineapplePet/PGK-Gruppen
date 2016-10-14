@@ -56,10 +56,6 @@ object Main {
 
     //var fyraBästa = ArrayBuffer.empty[RaceTurtle]
     //for (i <- 0 to 3) {
-     // fyraBästa += winnersKvartsfinal(i)
+    // fyraBästa += winnersKvartsfinal(i)
     //}
-
-
-    //val winnersKvartsfinal2 = ???
-
 }
