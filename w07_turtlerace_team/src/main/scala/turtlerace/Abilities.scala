@@ -1,7 +1,6 @@
 package turtlerace
 
 import cslib.window.SimpleWindow._
-
 import scala.util.Random
 
 
@@ -42,8 +41,13 @@ trait StockMarket extends RaceTurtle {
 
 trait Portalberoende extends RaceTurtle {
   val stepR = new Random()
+  val i = 0
   override def raceStep() = {
-
+    if(i % 2 == 0){
+      color = java.awt.Color.cyan
+    } else {
+      color = java.awt.Color.orange
+    }
       penUp()
       forward(stepR.nextInt(3) + 1)
       penDown()
@@ -66,15 +70,12 @@ trait KeD extends RaceTurtle { //Går dubbelt så långt eller inget
   override def toString: String = super.toString + " Kvitt eller Dubbelt"
 }
 
-trait hax extends RaceTurtle { //fuskar och hoppar direkt till slutet (låg chans)
-  val stepR = new Random()
+trait hax extends RaceTurtle { //hoppar till mål (<0.1% chans) annars går 0.5 i x-led
   override def raceStep() = {
-    //hoppar till mål (<1% chans) annars går 0.5 i x-led
-    if (math.random < 0.01) {
-      position = Point(450, position.y)
+    if (math.random < 0.001) {
+      position = Point(750, position.y)
     }
-
-    else if (math.random >= 0.01) {
+    else {
       forward(0.5)
     }
   }
