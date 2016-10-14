@@ -28,7 +28,7 @@ object TurtleRace {
   }
 }
 
-object Sequence{
+object Sequence extends App{
   /**
     * Returnerar sekvens med namn tagna från RaceTurtleNames.txt
     */
@@ -39,16 +39,17 @@ object Sequence{
 /**
   * Returnerar sekvens med färger från RaceTurtleColors.txt
   */
-  def colorSeq: Seq[String] = {
-    FileUtils.readLines("/h/d3/t/mas14dhu/Desktop/PGK-Gruppen/w07_turtlerace_team/src/main/scala/turtlerace/RaceTurtleColors.txt")
-  }
-}
+  def colorSeq: Seq[java.awt.Color] = {
+    val colorStringSeq = FileUtils.readLines("/h/d3/t/mas14dhu/Desktop/PGK-Gruppen/w07_turtlerace_team/src/main/scala/turtlerace/RaceTurtleColors.txt")
+    val colorColorSeq = Seq[java.awt.Color]
+    for(i <- 0 to colorStringSeq.size - 1){
+      colorStringSeq(i)
+      case  => "one"
+      case 2 => "two"
+      case _ => "many"
+    }
 
-object Translator{
-  /**
-    * Omvandlar colorSeq: Seq[String] -> colorSeq: Seq[java.awt.Color]
-    */
-  def color: Seq[java.awt.Color] = {
+
 
   }
 }
