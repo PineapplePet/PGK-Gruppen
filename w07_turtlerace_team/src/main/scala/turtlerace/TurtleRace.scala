@@ -65,8 +65,6 @@ object Sequence{
         colorColorSeq(i) = java.awt.Color.red
       }else if (colorStringSeq(i) == "green"){
         colorColorSeq(i) = java.awt.Color.green
-      }else if (colorStringSeq(i) == "white"){
-        colorColorSeq(i) = java.awt.Color.white
       }else {
         colorColorSeq(i) = java.awt.Color.yellow
       }

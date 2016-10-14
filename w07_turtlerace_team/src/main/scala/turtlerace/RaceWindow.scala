@@ -38,7 +38,7 @@ class RaceWindow extends SimpleWindow(800,600,"Race"){
     moveTo(x, 450)
     writeText(titel)
     var i = 0
-    while(i < 8) {
+    while(i < vector.size) {
       moveTo(x, 450 + newLine * (i+1))
       writeText(s"$i. " + vector(i))
       i += 1

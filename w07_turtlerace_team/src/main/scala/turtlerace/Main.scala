@@ -25,14 +25,14 @@ object Main {
     val rVector = for(i <- 1 to 8) yield { //Skapar 8 RaceTurtles för racet och tar de 8 första namnen från listan raceNames
       rVar = rand.nextInt(4) //Randomizing Traits for RaceTurtles
       if(rVar == 0){
-        new RaceTurtle(w,  nbr = i, name = raceNames(i), color = raceColors(i)) with Dizzy
+        new RaceTurtle(w,  nbr = i, name = raceNames(i) + " ", color = raceColors(i)) with Dizzy
       }else if(rVar == 1){
-        new RaceTurtle(w,  nbr = i, name = raceNames(i), color = raceColors(i)) with KeD
+        new RaceTurtle(w,  nbr = i, name = raceNames(i) + " ", color = raceColors(i)) with KeD
       }else if (rVar==2){
-        new RaceTurtle(w,  nbr = i, name = raceNames(i), color = raceColors(i)) with Abstinence
+        new RaceTurtle(w,  nbr = i, name = raceNames(i) + " ", color = raceColors(i)) with StockMarket
       }
       else
-        {new RaceTurtle(w,  nbr = i, name = raceNames(i), color = raceColors(i)) with Portalberoende}
+        {new RaceTurtle(w,  nbr = i, name = raceNames(i) + " ", color = raceColors(i)) with Portalberoende}
     }
 
     val winnersKvartsfinal = TurtleRace.race(rVector, w, "Kvartsfinal").toVector

@@ -14,7 +14,7 @@ import scala.util.Random
 
 class RaceTurtle(window: RaceWindow,
                  isPenDown: Boolean = true, //ändra till false om man vill ha groda
-                 color: java.awt.Color = java.awt.Color.CYAN,
+                 color: java.awt.Color,
                  var nbr: Int,
                  val name: String) extends ColorTurtle(window, position = Point(window.getStartX, window.getStartY(nbr)), angle = 0, isPenDown, color) {
 
