@@ -50,7 +50,6 @@ object Main {
           new RaceTurtle(w, nbr = i, name = raceNames(i) + " ", color = raceColors(i)) with Portalberoende
         }
       }
-      rVector.toVector
       TurtleRace.race(rVector, w, titel ).toVector
     }
 

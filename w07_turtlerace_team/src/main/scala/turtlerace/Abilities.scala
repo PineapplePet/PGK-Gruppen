@@ -42,15 +42,18 @@ trait StockMarket extends RaceTurtle {
 
 trait Portalberoende extends RaceTurtle {
   val stepR = new Random()
+  val i = 0
   override def raceStep() = {
+    if(i % 2 == 0){
 
+    }
       penUp()
       forward(stepR.nextInt(3) + 1)
       penDown()
     delay(10)
     forward(1)
   }
-  override def toString: String = super.toString + "Portalberoende"
+  override def toString: String = super.toString + " Portalberoende"
 }
 
 trait KeD extends RaceTurtle { //Går dubbelt så långt eller inget
@@ -66,17 +69,20 @@ trait KeD extends RaceTurtle { //Går dubbelt så långt eller inget
   override def toString: String = super.toString + " Kvitt eller Dubbelt"
 }
 
-trait hax extends RaceTurtle { //fuskar och hoppar direkt till slutet (låg chans)
+trait hax extends RaceTurtle {
+  //fuskar och hoppar direkt till slutet (låg chans)
   val stepR = new Random()
-  override def raceStep() = { //hoppar till mål (<1% chans) annars går 0.5 i x-led
-    if (math.random < 0.01)
+
+  override def raceStep() = {
+    //hoppar till mål (<1% chans) annars går 0.5 i x-led
+    if (math.random < 0.01) {
       position = Point(450, position.y)
-    }
-    else (math.random >= 0.01)  {
-       forward(0.5)
+    } else {
+      forward(0.5)
     }
 
-  override def toString: String = super.toString + " hax"
+    override def toString: String = super.toString + " hax"
+  }
 }
 
 trait Ghostery extends RaceTurtle { //Mall för trait
