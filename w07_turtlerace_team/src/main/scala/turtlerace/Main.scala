@@ -20,7 +20,7 @@ object Main {
 
 
 
-    var raceColors = Sequence.colorSeq
+    var raceColors = Sequence.colorVector
     raceColors = scala.util.Random.shuffle(raceColors)
 
     def deltagare(window: RaceWindow, startNummer: Int): Vector[RaceTurtle] = {

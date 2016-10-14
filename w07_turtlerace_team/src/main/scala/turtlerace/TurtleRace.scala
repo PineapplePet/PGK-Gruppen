@@ -33,44 +33,45 @@ object Sequence{
   /**
     * Returnerar sekvens med namn tagna från RaceTurtleNames.txt
     */
-  def nameSeq: Seq[String] = {
+  def nameSeq: Vector[String] = {
       FileUtils.readLines("/h/d3/t/mas14dhu/Desktop/PGK-Gruppen/w07_turtlerace_team/src/main/scala/turtlerace/RaceTurtleNames.txt")
     }
 
 /**
   * Returnerar sekvens med färger från RaceTurtleColors.txt
   */
-  def colorSeq: List[Color] = { //Blev för lång så kan kortas ned kod mässigt :O
-    val colorStringSeq = FileUtils.readLines("/h/d3/t/mas14dhu/Desktop/PGK-Gruppen/w07_turtlerace_team/src/main/scala/turtlerace/RaceTurtleColors.txt")
-    val colorColorSeq = new Array[Color](colorStringSeq.size)
-    for(i <- 0 to (colorStringSeq.size - 1)){
-      if (colorStringSeq(i) == "black"){
-        colorColorSeq(i) = Color.black
-      }else if (colorStringSeq(i) == "lightGray"){
-        colorColorSeq(i) = Color.lightGray
-      }else if (colorStringSeq(i) == "blue"){
-        colorColorSeq(i) = Color.blue
-      }else if (colorStringSeq(i) == "magenta"){
-        colorColorSeq(i) = Color.magenta
-      }else if (colorStringSeq(i) == "cyan"){
-        colorColorSeq(i) = Color.cyan
-      }else if (colorStringSeq(i) == "orange"){
-        colorColorSeq(i) = Color.orange
-      }else if (colorStringSeq(i) == "darkGray"){
-        colorColorSeq(i) = Color.darkGray
-      }else if (colorStringSeq(i) == "pink"){
-        colorColorSeq(i) = Color.pink
-      }else if (colorStringSeq(i) == "gray"){
-        colorColorSeq(i) = Color.gray
-      }else if (colorStringSeq(i) == "red"){
-        colorColorSeq(i) = Color.red
-      }else if (colorStringSeq(i) == "green"){
-        colorColorSeq(i) = Color.green
+  def colorVector: Vector[Color] = { //Blev för lång så kan kortas ned kod mässigt :O
+    val colorStringVector = FileUtils.readLines("/h/d3/t/mas14dhu/Desktop/PGK-Gruppen/w07_turtlerace_team/src/main/scala/turtlerace/RaceTurtleColors.txt")
+
+    var colorColorVector = new Array[java.awt.Color](colorStringVector.size)
+    for(i <- 0 until (colorStringVector.size - 1)){
+      if (colorStringVector(i) == "black"){
+        colorColorVector(i) = Color.black
+      }else if (colorStringVector(i) == "lightGray"){
+        colorColorVector(i) = Color.lightGray
+      }else if (colorStringVector(i) == "blue"){
+        colorColorVector(i) = Color.blue
+      }else if (colorStringVector(i) == "magenta"){
+        colorColorVector(i) = Color.magenta
+      }else if (colorStringVector(i) == "cyan"){
+        colorColorVector(i) = Color.cyan
+      }else if (colorStringVector(i) == "orange"){
+        colorColorVector(i) = Color.orange
+      }else if (colorStringVector(i) == "darkGray"){
+        colorColorVector(i) = Color.darkGray
+      }else if (colorStringVector(i) == "pink"){
+        colorColorVector(i) = Color.pink
+      }else if (colorStringVector(i) == "gray"){
+        colorColorVector(i) = Color.gray
+      }else if (colorStringVector(i) == "red"){
+        colorColorVector(i) = Color.red
+      }else if (colorStringVector(i) == "green"){
+        colorColorVector(i) = Color.green
       }else {
-        colorColorSeq(i) = Color.yellow
+        colorColorVector(i) = Color.yellow
       }
     }
 
-    colorColorSeq.toList //Returnerad FärgSekvens
+    colorColorVector.toVector //Returnerar FärgSekvens
   }
 }
