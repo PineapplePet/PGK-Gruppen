@@ -68,14 +68,16 @@ trait KeD extends RaceTurtle { //Går dubbelt så långt eller inget
 
 trait hax extends RaceTurtle { //fuskar och hoppar direkt till slutet (låg chans)
   val stepR = new Random()
-  override def raceStep() = { //hoppar till mål (<1% chans) annars går 0.5 i x-led
-    if (math.random < 0.01)
+  override def raceStep() = {
+    //hoppar till mål (<1% chans) annars går 0.5 i x-led
+    if (math.random < 0.01) {
       position = Point(450, position.y)
     }
-    else if (math.random >= 0.01)  {
-       forward(0.5)
-    }
 
+    else if (math.random >= 0.01) {
+      forward(0.5)
+    }
+  }
   override def toString: String = super.toString + " hax"
 }
 
