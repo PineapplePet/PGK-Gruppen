@@ -70,9 +70,8 @@ trait KeD extends RaceTurtle { //Går dubbelt så långt eller inget
   override def toString: String = super.toString + " Kvitt eller Dubbelt"
 }
 
-trait hax extends RaceTurtle { //fuskar och hoppar direkt till slutet (låg chans)
+trait hax extends RaceTurtle { //hoppar till mål (<0.1% chans) annars går 0.5 i x-led
   override def raceStep() = {
-    //hoppar till mål (<0.1% chans) annars går 0.5 i x-led
     if (math.random < 0.001) {
       position = Point(750, position.y)
     }
