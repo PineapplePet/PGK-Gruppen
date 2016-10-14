@@ -1,7 +1,7 @@
 package turtlerace
 
 object FileUtils {
-  import scala.util.Random
+  import java.awt.Color
   import java.nio.file.{ Paths, Files }
 
   def save(s: String, fileName: String): Unit =

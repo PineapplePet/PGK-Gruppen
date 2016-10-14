@@ -19,7 +19,7 @@ object Main {
     var raceNames = Sequence.nameSeq.toList    //Seq med åtta namn från RaceTurtleNames.txt görs om till List
     raceNames = scala.util.Random.shuffle(raceNames) //Blandar listan med namn
 
-    var raceColors = Sequence.colorSeq.toList
+    var raceColors = Sequence.colorSeq
     raceColors = scala.util.Random.shuffle(raceColors)
 
     val rVector = for(i <- 1 to 8) yield { //Skapar 8 RaceTurtles för racet och tar de 8 första namnen från listan raceNames
