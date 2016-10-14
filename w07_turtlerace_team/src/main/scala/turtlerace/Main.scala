@@ -20,11 +20,13 @@ object Main {
 
 
 
-    var raceColors = Sequence.colorSeq
+    var raceColors = Sequence.colorVector
     raceColors = scala.util.Random.shuffle(raceColors)
 
-    def deltagare(window: RaceWindow, startNummer: Int): Vector[RaceTurtle] = {
-      val rVector = for (i <- startNummer to startNummer + 7) yield {
+    heat(w, 1, "Kvartsfinal1")
+
+    def heat (window: RaceWindow, startNummer: Int, titel: String): Vector[RaceTurtle] = {
+      val rVector = for (i <- 1 to 8) yield {
         //Skapar 8 RaceTurtles för racet och tar de 8 första namnen från listan raceNames
         var randomNumber = rand.nextInt(3) //Randomizing Traits for RaceTurtles
         if (randomNumber == 0) {
@@ -39,17 +41,12 @@ object Main {
         }
       }
       rVector.toVector
+      TurtleRace.race(rVector, w, titel ).toVector
     }
 
-    val kvartsFinaler = for (i <- 0 to 31 by 8) yield {
-      deltagare(w, i)
-    }
 
-    for (i <- 0 to 3)
-      {TurtleRace.race(kvartsFinaler(i), w, s"Kvartsfinal $i+1")
-      w.clear()
-        w.draw()
-      }
+
+
     
 
   }
