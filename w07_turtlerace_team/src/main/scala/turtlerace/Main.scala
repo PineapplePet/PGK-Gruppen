@@ -55,21 +55,24 @@ object Main {
       lol
     }
 
+
+    var start = 1
     val semifinal1 = for (i <- 0 to 1;y <- 0 to 3) yield
       {
-        var start = 1
-        vinnareKvartsfinaler(i)(y).position = Point(w.getStartX, w.getStartY(start))
+
         vinnareKvartsfinaler(i)(y).nbr = start
+        vinnareKvartsfinaler(i)(y).restart
         start = start + 1
         vinnareKvartsfinaler(i)(y)
       }
 
 
+    start = 1
+
     val semifinal2 = for (i <- 2 to 3;y <- 0 to 3) yield
       {
-        var start = 1
-        vinnareKvartsfinaler(i)(y).position = Point(w.getStartX, w.getStartY(start))
         vinnareKvartsfinaler(i)(y).nbr = start
+        vinnareKvartsfinaler(i)(y).restart
         start = start + 1
         vinnareKvartsfinaler(i)(y)
       }
@@ -78,7 +81,7 @@ object Main {
 
     val vinnareSemifinaler = for (i <- 0 to 1) yield
       {
-        val semi = TurtleRace.race(semifinaler(i), w, s"Semifinal + $i + 1").toVector
+        val semi = TurtleRace.race(semifinaler(i), w, s"Semifinal ${i + 1}").toVector
         w.printRacers(semi, w.getEndX - 200, "Winners" )
         SimpleWindow.delay(1500)
         w.clear()
@@ -86,15 +89,19 @@ object Main {
         semi
       }
 
-
+start = 1
     val grandeFinale = for (i <- 0 to 1;y <- 0 to 3) yield
       {
-        var start = 1
-        vinnareSemifinaler(i)(y).position = Point(w.getStartX, w.getStartY(start))
+
         vinnareSemifinaler(i)(y).nbr = start
+        vinnareSemifinaler(i)(y).restart
         start = start + 1
         vinnareSemifinaler(i)(y)
       }
+
+
+    val finneeeel = TurtleRace.race(grandeFinale, w, "Final").toVector
+    w.printRacers(finneeeel, w.getEndX - 200, "Winners" )
 
 
 
