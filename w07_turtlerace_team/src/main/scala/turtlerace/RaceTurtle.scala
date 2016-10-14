@@ -45,6 +45,11 @@ class RaceTurtle(val window: RaceWindow,
     }
   }
 
+  /*def randTurtle(window: RaceWindow, nummer: Int, namn: String): Unit = {
+    var slump = math.random
+    if (slump < 0.33)
+  }
+*/
   /**
     * Restarts the turtle at the finish line.
     * To be used before each race

@@ -43,7 +43,7 @@ object Sequence{
   def colorSeq: List[Color] = { //Blev för lång så kan kortas ned kod mässigt :O
     val colorStringSeq = FileUtils.readLines("/h/d3/t/mas14dhu/Desktop/PGK-Gruppen/w07_turtlerace_team/src/main/scala/turtlerace/RaceTurtleColors.txt")
     val colorColorSeq = new Array[Color](colorStringSeq.size)
-    for(i <- 0 until (colorStringSeq.size - 1)){
+    for(i <- 0 to (colorStringSeq.size - 1)){
       if (colorStringSeq(i) == "black"){
         colorColorSeq(i) = Color.black
       }else if (colorStringSeq(i) == "lightGray"){
