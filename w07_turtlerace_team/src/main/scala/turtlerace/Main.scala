@@ -36,7 +36,7 @@ object Main {
     }
 
     val winnersKvartsfinal = TurtleRace.race(rVector, w, "Kvartsfinal").toVector
-    w.printRacers(winnersKvartsfinal, w.getEndX - 100, "Results")
+    w.printRacers(winnersKvartsfinal, w.getEndX - 300, "Results")
     println("Kvartsfinal")
     for (i <- 0 to 7) {
       println(winnersKvartsfinal(i))
