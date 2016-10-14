@@ -1,4 +1,7 @@
 package turtlerace
+
+import cslib.window.SimpleWindow._
+
 import scala.util.Random
 
 
@@ -37,6 +40,7 @@ trait Portalberoende extends RaceTurtle {
       penUp()
       forward(3)
       penDown()
+    delay(10)
     forward(1)
   }
   override def toString: String = super.toString + "Portalberoende"

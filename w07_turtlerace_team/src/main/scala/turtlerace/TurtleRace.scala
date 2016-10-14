@@ -39,7 +39,7 @@ object Sequence{
 /**
   * Returnerar sekvens med färger från RaceTurtleColors.txt
   */
-  def colorSeq: List[java.awt.Color] = {
+  def colorSeq: List[java.awt.Color] = { //Blev för lång så kan kortas ned kod mässigt :O
     val colorStringSeq = FileUtils.readLines("/h/d3/t/mas14dhu/Desktop/PGK-Gruppen/w07_turtlerace_team/src/main/scala/turtlerace/RaceTurtleColors.txt")
     val colorColorSeq = new Array[java.awt.Color](colorStringSeq.size)
     for(i <- 0 until (colorStringSeq.size - 1)){
