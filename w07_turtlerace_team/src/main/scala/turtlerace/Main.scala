@@ -25,16 +25,6 @@ object Main {
     var raceColors = Sequence.colorVector
     raceColors = scala.util.Random.shuffle(raceColors)
 
-
-    for (i <- 1 to 4) yield {
-      val lol = heat(w, 1, s"Kvartsfinal $i")
-      w.printRacers(lol, w.getEndX - 200, "Winners" )
-      SimpleWindow.delay(1500)
-      w.clear()
-      w.draw()
-    }
-
-
     def heat (window: RaceWindow, startNummer: Int, titel: String): Vector[RaceTurtle] = {
       val rVector = for (i <- 1 to 8) yield {
         //Skapar 8 RaceTurtles för racet och tar de 8 första namnen från listan raceNames
@@ -55,6 +45,60 @@ object Main {
       }
       TurtleRace.race(rVector, w, titel ).toVector
     }
+
+    val vinnareKvartsfinaler = for (i <- 1 to 4) yield {
+      val lol = heat(w, 1, s"Kvartsfinal $i")
+      w.printRacers(lol, w.getEndX - 200, "Winners" )
+      SimpleWindow.delay(1500)
+      w.clear()
+      w.draw()
+      lol
+    }
+
+    val semifinal1 = for (i <- 0 to 1;y <- 0 to 3) yield
+      {
+        vinnareKvartsfinaler(i)(y)
+      }
+
+
+    val semifinal2 = for (i <- 2 to 3;y <- 0 to 3) yield
+      {
+        vinnareKvartsfinaler(i)(y)
+      }
+
+    val semifinaler = Vector(semifinal1,semifinal2)
+
+    val vinnareSemifinaler = for (i <- 0 to 1) yield
+      {
+        TurtleRace.race(semifinaler(i), w, s"Semifinal + $i + 1")
+      }
+
+
+
+    val semi1 = TurtleRace.race(semifinal1,w, "Semifinal 1").toVector
+    w.printRacers(semi1, w.getEndX - 200, "Winners" )
+    SimpleWindow.delay(1500)
+    w.clear()
+    w.draw()
+
+    val semi2 = TurtleRace.race(semifinal2,w, "Semifinal 2").toVector
+    w.printRacers(semi2, w.getEndX - 200, "Winners" )
+    SimpleWindow.delay(1500)
+    w.clear()
+    w.draw()
+
+
+
+
+
+
+    /*val semiFinalister1 = vinnareKvartsfinaler(0)(0)
+    println(semiFinalister1)
+*/
+
+
+
+
 
 
 
