@@ -13,20 +13,25 @@ object Main {
     val w = new RaceWindow
     w.draw
 
-    val rand = new Random //Randomizing Traits for RaceTurtles
+    val rand = new Random
     var rVar = 0 //slumptal mellan 0, 1, 2 i for-loopen nedan
-    val raceNames = new
-    val rVector = for(i <- 1 to 8) yield {
-      rVar = rand.nextInt(4)
+
+    var raceNames = NameSequence.nameSeq.toList    //Seq med åtta namn från RaceTurtleNames.txt görs om till List
+    raceNames = scala.util.Random.shuffle(raceNames) //Blandar listan med namn
+
+
+
+    val rVector = for(i <- 1 to 8) yield { //Skapar 8 RaceTurtles för racet och tar de 8 första namnen från listan raceNames
+      rVar = rand.nextInt(4) //Randomizing Traits for RaceTurtles
       if(rVar == 0){
-        new RaceTurtle(w,  nbr = i, name = s"$i") with Dizzy
+        new RaceTurtle(w,  nbr = i, name = raceNames(i), color = ) with Dizzy
       }else if(rVar == 1){
-        new RaceTurtle(w,  nbr = i, name = s"$i") with KeD
+        new RaceTurtle(w,  nbr = i, name = raceNames(i), color = ) with KeD
       }else if (rVar==2){
-        new RaceTurtle(w,  nbr = i, name = s"$i") with Abstinence
+        new RaceTurtle(w,  nbr = i, name = raceNames(i), color = ) with Abstinence
       }
       else
-        {new RaceTurtle(w,  nbr = i, name = s"$i") with Portalberoende}
+        {new RaceTurtle(w,  nbr = i, name = raceNames(i), color = ) with Portalberoende}
     }
 
     val winnersKvartsfinal = TurtleRace.race(rVector, w, "Kvartsfinal").toVector

@@ -35,7 +35,7 @@ trait Portalberoende extends RaceTurtle {
   override def raceStep() = {
 
       penUp()
-      forward(3) //drugHybrisRage
+      forward(3)
       penDown()
     forward(1)
   }

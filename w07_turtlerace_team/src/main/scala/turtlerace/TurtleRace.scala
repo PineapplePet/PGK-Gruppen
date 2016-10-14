@@ -1,4 +1,4 @@
-package turtlerace;
+package turtlerace
 
 import scala.collection.mutable.ArrayBuffer
 import cslib.window._
@@ -29,8 +29,19 @@ object TurtleRace {
 }
 
 /**
-  * Sekvens med namn tagna från .txt // Måste göras klart!
+  * Returnerar sekvens med namn tagna från RaceTurtleNames.txt
   */
 object NameSequence{
-    val nameSeq = FileUtils.readLines("RaceTurtleNames.txt")
+    def nameSeq: Seq[String] = {
+      FileUtils.readLines("/h/d3/t/mas14dhu/Desktop/PGK-Gruppen/w07_turtlerace_team/src/main/scala/turtlerace/RaceTurtleNames.txt")
+    }
+}
+
+/**
+  * Returnerar sekvens med färger från Turtle Colors.txt
+  */
+object ColorSequence{
+  def colSeq: Seq[String] = {
+    FileUtils.readLines()
+  }
 }
