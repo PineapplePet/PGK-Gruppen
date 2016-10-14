@@ -38,7 +38,7 @@ object Main {
     def heat (window: RaceWindow, startNummer: Int, titel: String): Vector[RaceTurtle] = {
       val rVector = for (i <- 1 to 8) yield {
         //Skapar 8 RaceTurtles för racet och tar de 8 första namnen från listan raceNames
-        var randomNumber = rand.nextInt(4) //Randomizing Traits for RaceTurtles
+        var randomNumber = rand.nextInt(5) //Randomizing Traits for RaceTurtles
         if (randomNumber == 0) {
           new RaceTurtle(w, nbr = i, name = raceNames(i) + " ", color = raceColors(i)) with Dizzy
         } else if (randomNumber == 1) {

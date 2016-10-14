@@ -1,7 +1,6 @@
 package turtlerace
 
 import cslib.window.SimpleWindow._
-
 import scala.util.Random
 
 
@@ -45,7 +44,9 @@ trait Portalberoende extends RaceTurtle {
   val i = 0
   override def raceStep() = {
     if(i % 2 == 0){
-
+      color = java.awt.Color.cyan
+    } else {
+      color = java.awt.Color.orange
     }
       penUp()
       forward(stepR.nextInt(3) + 1)

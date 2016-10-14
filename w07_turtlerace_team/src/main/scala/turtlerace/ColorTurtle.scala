@@ -18,7 +18,7 @@ class ColorTurtle(window: SimpleWindow,
                   position: Point = Point(0, 0),
                   angle: Double = 0,
                   isPenDown: Boolean = true,
-                  private var color: java.awt.Color) extends Turtle(window, position, angle, isPenDown) {
+                  var color: java.awt.Color) extends Turtle(window, position, angle, isPenDown) {
 
   override def forward(length: Double): Unit = {
     val windowOriginalColor = window.getLineColor
