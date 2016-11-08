@@ -7,6 +7,7 @@ object ChordPlayer {
    */
   def apply(chord: Chord, time: Int): Unit = {
     //Add code to play chord
+    SimpleNotePlayer.play(,time)
     try {
       Thread.sleep(time); SimpleNotePlayer.stop; // wait time in milliseconds and than stop the sound
     } catch { case e: InterruptedException => println(e) }
