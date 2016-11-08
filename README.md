@@ -1,31 +1,24 @@
 PGK-Gruppen
 ====================
 
-### Grupplabb: Turtlerace_team
+### Grupplabb: Chords_team
 
 ##### Idéer att implementera, skriv namn efter varje förslag när du byggt på den:
 
-Fixa så att n många RaceTurtles kan var med i TurtleRace
 
 Implementera
 
 ##### Arbetsfördelning:
 
-Uppgift 1:      Alex
+Uppgift 1:      
 
-Uppgift 2:      Trolliver
+Uppgift 2:      
 
-Uppgift 3:      Daniel
+Uppgift 3:      
 
-Uppgift 4:      Niklas
+Uppgift 4:      
+
+Uppgift 5: 
 
 Uppgift Rulla Tummarna: De som inte gjort tidigare labbar ;)
 ___
-
-Ändra denna ReadMe genom att ändra i w07/README.md
-
-
-
-
-
-
