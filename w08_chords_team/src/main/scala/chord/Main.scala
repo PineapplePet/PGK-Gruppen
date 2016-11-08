@@ -15,6 +15,7 @@ object terminal {
   }
   
   /**
+    *
    * Splits a read line at " " and returns
    */
   def cmdLine: Vector[String] = {
