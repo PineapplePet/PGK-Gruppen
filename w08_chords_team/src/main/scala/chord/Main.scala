@@ -1,5 +1,5 @@
 package chord
-
+//ALEX WAS HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 object terminal {
   import java.util.Scanner
   import scala.util.{Try, Success, Failure}
