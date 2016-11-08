@@ -42,7 +42,7 @@ trait Portalberoende extends RaceTurtle {
   val stepR = new Random()
   var i = 0
   override def raceStep() = {
-    while(i % 2 == 0){
+    if(i % 2 == 0){
       color = java.awt.Color.cyan
     } else {
       color = java.awt.Color.orange
