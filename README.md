@@ -5,8 +5,7 @@ PGK-Gruppen
 
 ##### Idéer att implementera, skriv namn efter varje förslag när du byggt på den:
 
-
-Implementera
+...
 
 ##### Arbetsfördelning:
 
