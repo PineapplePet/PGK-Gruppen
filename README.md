@@ -10,15 +10,13 @@ Implementera
 
 ##### Arbetsfördelning:
 
-Uppgift 1:      
+Uppgift 1: Ahmed
 
-Uppgift 2:      
+Uppgift 2: Alex
 
-Uppgift 3:      
+Uppgift 3: Oliver
 
-Uppgift 4:      
+Uppgift 4: Niklas
 
-Uppgift 5: 
-
-Uppgift Rulla Tummarna: De som inte gjort tidigare labbar ;)
+Uppgift 5: Tillsammans
 ___
