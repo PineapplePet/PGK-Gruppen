@@ -30,7 +30,7 @@ object model {
       def isGit(s: String) = ???
       def isUku(s: String) = ???
       /**
-       * Match the strings instr, name and grip against the different types of chords
+       * Match the strings instr, name and grip againt the different types of chrods
        */
       def instToChord(instr: String, name: String, grip: String): Option[Chord] = ???
       val xs: Vector[String] = chordText.split(':').toVector
