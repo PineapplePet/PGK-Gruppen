@@ -35,7 +35,7 @@ object Main {
     import textui.{doCommand, Quit}
     val (response: String, isQuit: Boolean) = terminal.cmdLine match {
       case Vector() => ("", false)
-      case cmd +: cmdArgs => (doCommand(cmd, cmdArgs), doCommand.quit)
+      case cmd +: cmdArgs => println("cmdArgs: " + cmdArgs);(doCommand(cmd, cmdArgs), doCommand.quit)
     }
     println(response)
     if (isQuit) System.exit(0) else commandLoop

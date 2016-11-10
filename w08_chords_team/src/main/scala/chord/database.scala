@@ -14,7 +14,9 @@ object database {
   /**
    * Adds the chord c to the database
    */
-  def add(c: Chord): Unit = ???
+  def add(c: Chord): Unit = {
+    db = db :+ c
+  }
   
   /**
    * Delete the chord with index i among the filtered chords
@@ -33,9 +35,11 @@ object database {
   def filteredChords: Chords = ???
   
   /**
-   * Return all chords i the database
+   * Return all chords in the database
    */
-  def allChords: Chords = ???
+  def allChords: Chords = {
+    db
+  }
   
   /**
    * Sorts the chords first by instrument and then by name

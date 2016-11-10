@@ -14,7 +14,14 @@ object textui {
   object Add extends Cmd {
     val variants = Set("add", "a", "+")
     val helpText = "Adds a chord, e.g.> add git:D:-1 -1 0 2 3 2;uku:C:0 0 0 3"
-    def doWith(args: Vector[String]): String = ???
+    def doWith(args: Vector[String]): String = {
+      // args ser ut såhär: Vector(git:D:-1, -1, 0, 2, 3, 2;uku:C:0, 0, 0, 3)
+      var chordsToBeAdded = args.mkString(" ").split(";")
+      //chrordsToBeAdded ser ut såhär: Array(git:D:-1 -1 0 2 3 2, uku:C:0 0 0 3)
+
+      //Dags att loopa i chrordsToBeAdded och köra add på varje element
+      database.add(Guitar(name, model.Chord.stringToGripVec()))
+    }
   }
 
   object Lst extends Cmd {

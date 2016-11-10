@@ -83,7 +83,7 @@ object Main {
       {
         val semi = TurtleRace.race(semifinaler(i), w, s"Semifinal ${i + 1}").toVector
         w.printRacers(semi, w.getEndX - 200, "Winners" )
-        SimpleWindow.delay(1500)
+        SimpleWindow.delay(150
         w.clear()
         w.draw()
         semi
