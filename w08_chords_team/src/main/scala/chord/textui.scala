@@ -23,15 +23,13 @@ object textui {
     val helpText = "Plays a chord, e.g. play 10 5, where 10 represents the duration in milliseconds and 5 the listing of the wanted chord"
 
     def doWith(args: Vector[String]): String = {
-
       args match {
-
-        case args if args.length > 2 => "Too many inputs"
-        case args if args.length < 2 => "Too few inputs"
-        case args if !args.forall(x => x.replaceAll("-", "").forall(_.isDigit)) => "Only numbers allowed" //kontrollerar att alla parametrar är nummer
+        case Vector(x) => "Too many inputs"
+        case Vector(x, y, z) => "Too few inputs"
+        case whatever if !args.forall(x => x.replaceAll("-", "").forall(_.isDigit)) => "Only numbers allowed" //kontrollerar att alla parametrar är nummer
         case `args` if `args`(0).toInt < 0 => "Index out of bounds at first parameter"
         case `args` if `args`(1).toInt < 0 || `args`(1).length > 1 => "Index out of bounds at second parameter"
-        case _ => println("Playing " + database.filteredChords(args(1).toInt)); ChordPlayer(database.filteredChords(args(1).toInt), args(0).toInt); ""
+        case _ => println("Playing: " + database.filteredChords(args(1).toInt)); ChordPlayer(database.filteredChords(args(1).toInt), args(0).toInt); ""
       }
     }
   }
@@ -57,30 +55,21 @@ object textui {
           resultat = "fel instrument"
         }
         else if (!Notes.notes.contains(chordsToBeAdded(i).split(':')(1))) {
-
           resultat = "tonen finns inte"
-
         }
         else {
-
-
           val instr = chordsToBeAdded(i).split(':')(0)
           val not = chordsToBeAdded(i).split(':')(1)
           val grip = chordsToBeAdded(i).split(':')(2)
-
           if (instr == "git") {
             database.add(model.Guitar(not, model.stringToGripVec(grip)))
           }
           else if (instr == "uku") {
             database.add(model.Ukulele(not, model.stringToGripVec(grip)))
           }
-
           resultat = "Chords added"
         }
-
-
       }
-
       resultat
     }
   }
@@ -119,17 +108,13 @@ object textui {
     val helpText = "Turn filter on/off. Example: filter git:Em;uku:C;:G"
 
     def doWith(args: Vector[String]): String = {
-
-
       if (args.nonEmpty) {
         database.updateFilter(args(0))
       }
       else {
         database.updateFilter("")
       }
-
       database.filteredChords.mkString(", ")
-
     }
   }
 
@@ -141,9 +126,7 @@ object textui {
   }
 
   object Load extends Cmd {
-
     import scala.io.Source
-
     val variants = Set("load", "lo", "ld")
     val helpText = "Loads chords from file"
 
@@ -174,6 +157,7 @@ object textui {
   object Save extends Cmd {
     val variants = Set("save", "s")
     val helpText = "Saves all chords to file"
+
     def doWith(args: Vector[String]): String = {
       val test = args match {
         case whatever if args.isEmpty => false
@@ -201,6 +185,7 @@ object textui {
   object Sort extends Cmd {
     val variants = Set("sort", "srt")
     val helpText = "Sorts all chords in instrument and chord name order"
+
     def doWith(args: Vector[String]): String = {
       database.sort
       database.filteredChords.mkString(", ")
@@ -235,10 +220,9 @@ object textui {
     val helpText = "Quits this app after a Y/N promtp"
 
     def doWith(args: Vector[String]): String = {
-
-
       if (quitPrompt) {
-        System.exit(0); "Chords shutting down"
+        System.exit(0);
+        "Chords shutting down"
       }
       else {
         "Chords continues"
@@ -248,14 +232,11 @@ object textui {
     }
 
     def quitPrompt: Boolean = {
-
       scala.io.StdIn.readLine("Quit, Y or N?").toLowerCase match {
         case "y" => true
         case "n" => false
         case _ => println("whatcha doing mate"); false
       }
-
-
     }
   }
 
