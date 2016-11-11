@@ -200,7 +200,7 @@ object textui {
 
 
       }
-      else { "whaaaat"}
+      else { "No file in input"}
 
     }
   }
