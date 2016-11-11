@@ -81,6 +81,12 @@ object database {
    * Sorts the chords first by instrument and then by name
    */
   def sort: Unit = {
-    //db = db.sorted
+    var dbstring = db.mkString("Ö").split("Ö").sorted
+    var tempDb: Vector[Chord] = Vector()
+    for (i <- dbstring.indices)
+      {
+       tempDb = tempDb :+ Chord.fromString(dbstring(i)).toVector(0)
+      }
+    db = tempDb
   }
 }

@@ -67,9 +67,7 @@ object textui {
     val helpText = "Prints a numbered list of filtered chords (all chords if no filter is applied)"
     def doWith(args: Vector[String]): String = {
 
-      database.allChords.mkString(", ")
-
-      
+        database.filteredChords.mkString(", ")
 
     }
 
@@ -145,7 +143,13 @@ object textui {
   object Sort extends Cmd {
     val variants = Set("sort", "srt")
     val helpText = "Sorts all chords in instrument and chord name order"
-    def doWith(args: Vector[String]): String = ???
+    def doWith(args: Vector[String]): String = {
+
+      database.sort
+      database.filteredChords.mkString(", ")
+
+
+    }
   }
 
   object Help extends Cmd {
