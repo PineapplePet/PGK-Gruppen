@@ -19,15 +19,55 @@ object textui {
       var chordsToBeAdded = args.mkString(" ").split(";")
       //chrordsToBeAdded ser ut såhär: Array(git:D:-1 -1 0 2 3 2, uku:C:0 0 0 3)
 
+      var resultat = "blablabal"
+
       //Dags att loopa i chrordsToBeAdded och köra add på varje element
-      database.add(Guitar(name, model.Chord.stringToGripVec()))
+      for (i <- 0 until chordsToBeAdded.size)
+        {
+
+          if(chordsToBeAdded(i).split(':').size != 3)
+            {
+                  resultat = "fel format"
+            }
+          else if(!chordsToBeAdded(i).split(':')(0).contains("git") && !chordsToBeAdded(i).split(':')(0).contains("uku") )
+          {
+                  resultat = "fel instrument"
+          }
+            else if(!Notes.notes.contains(chordsToBeAdded(i).split(':')(1))) {
+
+              resultat = "tonen finns inte"
+
+            }
+         else {
+
+
+            val not = chordsToBeAdded(i).split(':')(1)
+            val grip = chordsToBeAdded(i).split(':')(2)
+            database.add(model.Guitar(not, model.stringToGripVec(grip)))
+            resultat = "Chords added"
+          }
+
+
+        }
+
+      resultat
     }
   }
 
   object Lst extends Cmd {
     val variants = Set("list", "li", "ls", "lst")
     val helpText = "Prints a numbered list of filtered chords (all chords if no filter is applied)"
-    def doWith(args: Vector[String]): String = ???
+    def doWith(args: Vector[String]): String = {
+
+      database.allChords.mkString(",")
+
+      
+
+    }
+
+
+
+
   }
 
   object Del extends Cmd {
