@@ -69,22 +69,14 @@ object textui {
     val variants = Set("list", "li", "ls", "lst")
     val helpText = "Prints a numbered list of filtered chords (all chords if no filter is applied)"
     def doWith(args: Vector[String]): String = {
-
         database.filteredChords.mkString(", ")
-
     }
-
-
-
-
   }
 
   object Del extends Cmd {
     val variants = Set("delete", "del", "-")
     val helpText = "Deletes a chord at the given position in the filtered list of chords. Example: del 42"
     def doWith(args: Vector[String]): String = {
-
-
       if(args.nonEmpty) {
         if (args(0).toInt > database.filteredChords.size - 1 || args(0).toInt < 0) {
           "No chord to remove at the given position"
@@ -93,16 +85,10 @@ object textui {
           database.delete(args(0).toInt)
           database.filteredChords.mkString(", ")
         }
-
-
       }
-
       else {
         "Missing parameter for removal"
       }
-
-
-
     }
   }
 
