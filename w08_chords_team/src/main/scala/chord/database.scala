@@ -11,7 +11,7 @@ object database {
    */
   def find(s: String): Chords = {
     var lista: Vector[Chord] = Vector()
-    for (i <- 0 until db.size) {
+    for (i <- db.indices) {             //indices = går genom samtliga index (samma som 0 until size)
       if (db(i).isIncludedBy(s)) {
         lista = lista :+ db(i)
       }
@@ -30,20 +30,32 @@ object database {
    * Delete the chord with index i among the filtered chords
    */
   def delete(i: Int): Unit = ???
-  
+
   /**
    * Update the filter to string s.
    * Empty string results in no filter
    */
   def updateFilter(f: String): Unit = {
-
+    if (f.isEmpty) {
+      filter = ""
+    } else {
+      filter = f
+    }
   }
  
   /**
    * Returns all chords matching the filter
    */
-  def filteredChords: Chords = ???
-  
+  def filteredChords: Chords = {
+    var lista: Vector[Chord] = Vector()
+    for (i <- db.indices) {
+      if (db(i).isIncludedBy(filter)) {
+        lista = lista :+ db(i)
+      }
+    }
+    lista
+  }
+
   /**
    * Return all chords in the database
    */
@@ -54,5 +66,7 @@ object database {
   /**
    * Sorts the chords first by instrument and then by name
    */
-  def sort: Unit = ???
+  def sort: Unit = {
+    db = db.sorted
+  }
 }
