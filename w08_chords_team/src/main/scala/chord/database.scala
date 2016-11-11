@@ -29,13 +29,19 @@ object database {
   /**
    * Delete the chord with index i among the filtered chords
    */
-  def delete(i: Int): Unit = ???
+  def delete(i: Int): Unit = {
+
+    db = db.filter(_ != filteredChords(i))
+
+
+  }
 
   /**
    * Update the filter to string s.
    * Empty string results in no filter
    */
   def updateFilter(f: String): Unit = {
+
     if (f.isEmpty) {
       filter = ""
     } else {
@@ -47,11 +53,19 @@ object database {
    * Returns all chords matching the filter
    */
   def filteredChords: Chords = {
+
+    val filterLista = filter.split(";")
+
+
+   // "git:C; uku: ; :D"
+
     var lista: Vector[Chord] = Vector()
-    for (i <- db.indices) {
-      if (db(i).isIncludedBy(filter)) {
-        lista = lista :+ db(i)
-      }
+
+    for (i <- filterLista.indices){
+      for (j <- db.indices)
+        {
+          if (db(j).toString.contains(filterLista(i))) { lista = lista :+ db(j)}
+        }
     }
     lista
   }
@@ -67,6 +81,6 @@ object database {
    * Sorts the chords first by instrument and then by name
    */
   def sort: Unit = {
-    db = db.sorted
+    //db = db.sorted
   }
 }
