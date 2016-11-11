@@ -7,20 +7,16 @@ object SimpleNotePlayer {
   val channel: Option[Array[MidiChannel]] = try {
     val midiSynth = MidiSystem.getSynthesizer();
     midiSynth.open();
-
     val i = midiSynth.getDefaultSoundbank().getInstruments()
-
     midiSynth.loadInstrument(i.apply(0)); //load an instrument
-
     Some(midiSynth.getChannels());
-
   } catch { case e: MidiUnavailableException => println(e); None }
   
   /**
    * Plays the note and let it ring for the specified time
    */
   def play(note: Int, time: Int): Unit = {
-    channel.getOrElse{println("Could not load MIDI"); System.exit(1); Array[MidiChannel]()}(0).noteOn(note+48, time) //Jag har ökat på med 48 ist för 24
+    channel.getOrElse{println("Could not load MIDI"); System.exit(1); Array[MidiChannel]()}(0).noteOn(note+24, time)
   }
   
   /**
