@@ -76,7 +76,7 @@ object database {
   def allChords: Chords = {
     db
   }
-  
+
   /**
    * Sorts the chords first by instrument and then by name
    */
