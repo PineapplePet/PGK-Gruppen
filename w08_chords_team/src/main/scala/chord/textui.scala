@@ -14,6 +14,25 @@ object textui {
     def ===(s: String): Boolean = variants.contains(s.toLowerCase)
   }
 
+  object Play extends Cmd {
+    val variants = Set("play", "P", "p")
+    val helpText = "Plays a chord, e.g. play 10 5, where 10 represents the duration in milliseconds and 5 the listing of the wanted chord"
+
+    def doWith(args: Vector[String]): String = {
+      ChordPlayer(model.Guitar("D", model.stringToGripVec("-1 -1 0 2 3 2")), 1000)
+      args match {
+
+        case args if args.length > 2 => "Too many inputs"
+        case args if args.length < 2 => "Too few inputs"
+        case args if !args.forall(x => x.replaceAll("-", "").forall(_.isDigit)) => "Only numbers allowed" //kontrollerar att alla parametrar är nummer
+        case `args` if `args`(0).toInt < 0 => "Index out of bounds at first parameter"
+        case `args` if `args`(1).toInt < 0 || `args`(1).length > 1 => "Index out of bounds at second parameter"
+        case _ => ChordPlayer(database.filteredChords(args(1).toInt), args(0).toInt)
+          "playing"
+      }
+    }
+  }
+
   object Add extends Cmd {
     val variants = Set("add", "a", "+")
     val helpText = "Adds a chord, e.g.> add git:D:-1 -1 0 2 3 2;uku:C:0 0 0 3"
@@ -66,6 +85,7 @@ object textui {
   }
 
   object Lst extends Cmd {
+    SimpleNotePlayer.play(2, 5000)
     val variants = Set("list", "li", "ls", "lst")
     val helpText = "Prints a numbered list of filtered chords (all chords if no filter is applied)"
     def doWith(args: Vector[String]): String = {
@@ -246,7 +266,7 @@ object textui {
   object doCommand {
     var quit = false
     def unknownCmdHelp(cmd: String) = s"Unkown command: $cmd\nType ? for help."
-    val cmds = Vector[Cmd](Add, Lst, Del, Filter, Find, Load, Save, Sort, Help, Quit)
+    val cmds = Vector[Cmd](Add, Lst, Del, Filter, Find, Load, Save, Sort, Help, Quit, Play)
     def apply(cmd: String, args: Vector[String]): String = cmds.find(_ === cmd) match {
       case Some(command) => command doWith args
       case None => unknownCmdHelp(cmd)
