@@ -1,7 +1,10 @@
 package chord
 
+import java.nio.file.Files
+
 import chord.model.Chord
-import scala.util.{Try, Success, Failure}
+
+import scala.util.{Failure, Success, Try}
 
 object textui {
   trait Cmd {
@@ -131,13 +134,69 @@ object textui {
     import scala.io.Source
     val variants = Set("load", "lo", "ld")
     val helpText = "Loads chords from file"
-    def doWith(args: Vector[String]): String = ???
+    def doWith(args: Vector[String]): String = {
+
+
+
+      val test = args match {
+        case whatever if(args.isEmpty) => false
+        case _ => true
+        }
+
+      if (test)
+        {
+
+          try {
+
+              val lista = scala.io.Source.fromFile(args(0))("UTF-8").getLines.toVector
+              for (i <- lista.indices) {
+                database.add(Chord.fromString(lista(i)).toVector(0))
+              }
+              database.filteredChords.mkString(", ")
+
+          } catch { case e: Exception => "Unable to load: " +  e.getMessage}
+
+
+        }
+      else { "whaaaat"}
+    }
+
   }
 
   object Save extends Cmd {
     val variants = Set("save", "s")
     val helpText = "Saves all chords to file"
-    def doWith(args: Vector[String]): String = ???
+    def doWith(args: Vector[String]): String = {
+
+
+      val test = args match {
+        case whatever if args.isEmpty => false
+        case _ => true
+      }
+
+      if (test)
+      {
+
+        try {
+
+          var lista : Vector[String] = Vector()
+
+            for (i<- 0 until database.allChords.size ){
+            lista = lista :+ database.allChords(i).toString
+          }
+
+
+           io.save(args(0),lista)
+
+          database.filteredChords.mkString(", ")
+
+        } catch { case e: Exception => "Unable to load: " +  e.getMessage}
+
+
+      }
+      else { "whaaaat"}
+
+    }
   }
 
   object Sort extends Cmd {
@@ -177,9 +236,25 @@ object textui {
   object Quit extends Cmd {
     val variants = Set("quit", "q")
     val helpText = "Quits this app after a Y/N promtp"
-    def doWith(args: Vector[String]): String = ???
+    def doWith(args: Vector[String]): String = {
+
+
+      if(quitPrompt){System.exit(0);"Chords shutting down"}
+      else { "Chords continues"}
+
+
+    }
     
-    def quitPrompt: Boolean = ???
+    def quitPrompt: Boolean = {
+
+      scala.io.StdIn.readLine("Quit, Y or N?").toLowerCase match {
+        case "y" => true
+        case  "n" => false
+        case _ => println("whatcha doing mate"); false
+      }
+
+
+    }
   }
 
   object doCommand {
