@@ -9,7 +9,15 @@ object database {
   /**
    * Finds the chords among the filtered chords matching the string s
    */
-  def find(s: String): Chords = ???
+  def find(s: String): Chords = {
+    var lista: Vector[Chord] = Vector()
+    for (i <- 0 until db.size) {
+      if (db(i).isIncludedBy(s)) {
+        lista = lista :+ db(i)
+      }
+    }
+    lista
+  }
   
   /**
    * Adds the chord c to the database
@@ -27,7 +35,9 @@ object database {
    * Update the filter to string s.
    * Empty string results in no filter
    */
-  def updateFilter(f: String): Unit = ???
+  def updateFilter(f: String): Unit = {
+
+  }
  
   /**
    * Returns all chords matching the filter
