@@ -85,7 +85,7 @@ object textui {
   }
 
   object Lst extends Cmd {
-    SimpleNotePlayer.play(2, 5000)
+    SimpleNotePlayer.play(12, 5000)
     val variants = Set("list", "li", "ls", "lst")
     val helpText = "Prints a numbered list of filtered chords (all chords if no filter is applied)"
     def doWith(args: Vector[String]): String = {
