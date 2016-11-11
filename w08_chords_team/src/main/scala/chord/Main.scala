@@ -25,7 +25,6 @@ object terminal {
 
 object Main {
   def main(args: Array[String]): Unit = {println(greeting); commandLoop}
-
   val greeting = "*** Welcome to this awesome chords.Main app!\n*** Type ? for help.\n"
 
   /**

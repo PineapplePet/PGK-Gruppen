@@ -20,7 +20,7 @@ object SimpleNotePlayer {
    * Plays the note and let it ring for the specified time
    */
   def play(note: Int, time: Int): Unit = {
-    channel.getOrElse{println("Could not load MIDI"); System.exit(1); Array[MidiChannel]()}(0).noteOn(note+24, time)
+    channel.getOrElse{println("Could not load MIDI"); System.exit(1); Array[MidiChannel]()}(0).noteOn(note+48, time) //Jag har ökat på med 48 ist för 24
   }
   
   /**

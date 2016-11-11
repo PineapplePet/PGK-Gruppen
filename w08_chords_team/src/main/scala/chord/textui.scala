@@ -141,19 +141,13 @@ object textui {
     val variants = Set("load", "lo", "ld")
     val helpText = "Loads chords from file"
     def doWith(args: Vector[String]): String = {
-
-
-
       val test = args match {
         case whatever if(args.isEmpty) => false
         case _ => true
         }
-
       if (test)
         {
-
           try {
-
               val lista = scala.io.Source.fromFile(args(0))("UTF-8").getLines.toVector
               for (i <- lista.indices) {
                 database.add(Chord.fromString(lista(i)).toVector(0))
@@ -161,8 +155,6 @@ object textui {
               database.filteredChords.mkString(", ")
 
           } catch { case e: Exception => "Unable to load: " +  e.getMessage}
-
-
         }
       else { "whaaaat"}
     }
