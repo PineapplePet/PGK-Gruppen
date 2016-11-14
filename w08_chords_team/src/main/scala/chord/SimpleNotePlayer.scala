@@ -7,13 +7,9 @@ object SimpleNotePlayer {
   val channel: Option[Array[MidiChannel]] = try {
     val midiSynth = MidiSystem.getSynthesizer();
     midiSynth.open();
-
     val i = midiSynth.getDefaultSoundbank().getInstruments()
-
     midiSynth.loadInstrument(i.apply(0)); //load an instrument
-
     Some(midiSynth.getChannels());
-
   } catch { case e: MidiUnavailableException => println(e); None }
   
   /**
