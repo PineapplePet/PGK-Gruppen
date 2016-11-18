@@ -7,8 +7,8 @@ object ChordDraw {
   /**
    * Draws the chord c in a SimpleWindow
    */
-  def apply(c: Chord): Unit = {
-    SimpleWindow.setExitOnLastClose(false)
+  def apply(c: Chord): Unit = ???
+    /*SimpleWindow.setExitOnLastClose(false)
     w.clear
     val nbrOfStrings = c.tuning.length
     //Code to draw fret board and grip
@@ -32,10 +32,9 @@ object ChordDraw {
       w.moveTo(x + 50, 100)
     }
 
+*/
 
 
-    play(c)
-  }
   
   /**
    * Waits for mouse click and plays the note of the string clicked on

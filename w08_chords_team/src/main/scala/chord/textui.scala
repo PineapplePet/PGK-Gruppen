@@ -30,7 +30,7 @@ object textui {
     }
   }
 
-  object Draw extends Cmd {
+  /*object Draw extends Cmd {
     val variants = Set("draw", "D", "d")
     val helpText = "Draws the instrument as well as the chord as crosses on the strings"
 
@@ -38,11 +38,11 @@ object textui {
       args match {
         case whatever if args.size > 1 => "Too many parameters"
         case whatever if args.size < 1 => "Too few parameters"
-        case whatever
+        case whatever => "......."
       }
     }
   }
-
+*/
   object Add extends Cmd {
     val variants = Set("add", "a", "+")
     val helpText = "Adds a chord, e.g.> add git:D:-1 -1 0 2 3 2;uku:C:0 0 0 3"

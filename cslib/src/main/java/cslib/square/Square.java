@@ -29,9 +29,10 @@ public class Square {
 		w.setLineColor(java.awt.Color.white);
 		draw(w);
 		w.setLineColor(java.awt.Color.black);
-  	}		
-    
-    /** Flyttar kvadraten avståndet dx i x-led, dy i y-led. */
+	}
+
+
+	/** Flyttar kvadraten avståndet dx i x-led, dy i y-led. */
 	public void move(int dx, int dy) {
 		x = x + dx;
 		y = y + dy;
