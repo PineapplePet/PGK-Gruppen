@@ -8,6 +8,8 @@
       <sourceFolder url="file://$MODULE_DIR$/w08_chords_team/src/main/scala" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cslib/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/w07_turtlerace_team/src/main/scala" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/w11_lthopoly_team/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/w11_lthopoly_team/src/main/scala" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

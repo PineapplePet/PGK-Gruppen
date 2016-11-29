@@ -32,6 +32,6 @@ public class DocumentParser {
     public static MoveCard[] getMoveCards() {
         return null;
     }
-
+        // Använda detta? ->     File f = new File(DocumentParser.class.getResource("/moneycards.txt").getFile());
 
 }
