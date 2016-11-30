@@ -62,9 +62,7 @@ public class GameBoard {
     /**
      * Returns a list of all players
      */
-    public List<Player> getPlayers() {
-        return null;
-    }
+    public List<Player> getPlayers() {return null;}
 
     /**
      * Returns a list of all BoardSpaces

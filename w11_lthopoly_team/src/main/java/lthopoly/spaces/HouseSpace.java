@@ -2,16 +2,23 @@ package lthopoly.spaces;
 
 
 import lthopoly.GameBoard;
+import lthopoly.Player;
 
 /**
  * Created by Tank on 4/17/2016.
  */
 public class HouseSpace extends BoardSpace {
+    private int rent;
+    private String description;
+    private int[] array;
+    private Player owner;
 
     /**
      * Creates a new housespace with rent and a description
      */
     public HouseSpace(int rent, String description) {
+        this.rent = rent;
+        this.description = description;
     }
 
     /**
@@ -19,7 +26,7 @@ public class HouseSpace extends BoardSpace {
      */
     @Override
     public int[] getPossibleActions(GameBoard board) {
-        return null;
+        return board.getPossibleActions();
     }
 
     /**
@@ -27,6 +34,7 @@ public class HouseSpace extends BoardSpace {
      */
     @Override
     public void action(GameBoard board, int action) {
+        board.doAction(action);
     }
 
     /**
@@ -34,7 +42,7 @@ public class HouseSpace extends BoardSpace {
      */
     @Override
     public String toString() {
-        return null;
+        return "HouseName: " + this.description + " Owner: " + this.name + " Rent: " + this.rent;
     }
 
 }
