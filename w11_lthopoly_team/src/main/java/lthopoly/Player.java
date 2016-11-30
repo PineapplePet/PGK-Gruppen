@@ -17,6 +17,9 @@ public class Player {
         this.pos = pos;
     }
 
+    public String getName() {
+        return this.name;
+    }
     /**
      * Returns the players money
      */

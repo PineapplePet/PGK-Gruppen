@@ -29,6 +29,14 @@ public class HouseSpace extends BoardSpace {
         return board.getPossibleActions();
     }
 
+    public void setOwner(Player newOwner) {
+        this.owner = newOwner;
+    }
+
+    public Player getOwner() {
+        return owner;
+    }
+
     /**
      * Performs a HouseSpace-related action.
      */
@@ -42,7 +50,7 @@ public class HouseSpace extends BoardSpace {
      */
     @Override
     public String toString() {
-        return "HouseName: " + this.description + " Owner: " + this.name + " Rent: " + this.rent;
+        return "HouseName: " + this.description + " Owner: " + this.owner.getName() + " Rent: " + this.rent;
     }
 
 }
