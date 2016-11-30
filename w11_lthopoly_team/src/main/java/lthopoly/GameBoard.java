@@ -34,6 +34,11 @@ public class GameBoard {
      * Creates a new board ready to play
      */
     public GameBoard(List<Player> players) {
+
+        this.players = players;
+
+
+
     }
 
     /**
@@ -56,21 +61,37 @@ public class GameBoard {
      * Returns the player with the most money
      */
     public Player getRichestPlayer() {
-        return null;
+
+        int bigCash = 0;
+        int currentVonAnka = 0;
+
+        for(int i = 0; i<players.size();i++)
+        {
+            if (players.get(i).getMoney()>bigCash) {
+                bigCash = players.get(i).getMoney();
+                currentVonAnka = i;
+            }
+        }
+
+        return players.get(currentVonAnka);
+
+
     }
 
     /**
      * Returns a list of all players
      */
     public List<Player> getPlayers() {
-        return null;
+
+        return players;
+
     }
 
     /**
      * Returns a list of all BoardSpaces
      */
     public List<BoardSpace> getBoardSpaces() {
-        return null;
+        return spaces;
     }
 
     /**
