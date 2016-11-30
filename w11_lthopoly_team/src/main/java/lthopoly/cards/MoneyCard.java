@@ -9,6 +9,7 @@ public class MoneyCard {
      * Creates a new MoneyCard
      */
     public MoneyCard(String description, int money) {
+
     }
 
     /**
