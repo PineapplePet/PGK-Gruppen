@@ -4,31 +4,38 @@ package lthopoly;
  * Created by Tank on 4/17/2016.
  */
 public class Player {
+    private String name;
+    private int money;
+    private int pos;
 
     /**
      * Creates a new player
      */
     public Player(String name, int money, int pos) {
+        this.name = name;
+        this.money = money;
+        this.pos = pos;
     }
 
     /**
      * Returns the players money
      */
     public int getMoney() {
-        return 0;
+        return this.money;
     }
 
     /**
      * Adjusts the players money
      */
     public void adjustMoney(int money) {
+        this.money = money;
     }
 
     /**
      * Returns the players position
      */
     public int getPosition() {
-        return 0;
+        return this.pos;
     }
 
     /**
@@ -36,12 +43,13 @@ public class Player {
      */
     @Override
     public String toString() {
-        return null;
+        return "Name: " + this.name + " Money: " + this.money + " Position: " + this.pos;
     }
 
     /**
      * Sets the players position
      */
     public void setPosition(int pos) {
+        this.pos = pos;
     }
 }
