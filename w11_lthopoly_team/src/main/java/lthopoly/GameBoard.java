@@ -28,15 +28,30 @@ public class GameBoard {
      */
     private ArrayList<BoardSpace> spaces;
     private List<Player> players;
+    private int turn = 0;
 
 
     /**
      * Creates a new board ready to play
      */
+
+
+    private void nextTurn() {
+
+        if (turn < players.size())
+        {
+            turn = turn + 1;
+        }
+        else {
+            turn = 0;
+        }
+    }
+
+
+
     public GameBoard(List<Player> players) {
 
         this.players = players;
-
 
 
     }
@@ -54,7 +69,16 @@ public class GameBoard {
      * Checks whether the game is over or not
      */
     public boolean isGameOver() {
-        return false;
+
+        boolean gameOver = false;
+
+        for(int i = 0; i<players.size();i++)
+        {
+            if (players.get(i).getMoney()<1) {
+                gameOver = true;
+            }
+        }
+        return gameOver;
     }
 
     /**
@@ -104,14 +128,14 @@ public class GameBoard {
      * Returns the currently active player
      */
     public Player getCurrentPlayer() {
-        return null;
+        return players.get(turn);
     }
 
     /**
      * Returns the boardspace corresponding to the position of the current player.
      */
     public BoardSpace getCurrentBoardSpace() {
-        return null;
+        return spaces.get(getCurrentPlayer().getPosition());
     }
 
     /**
