@@ -28,7 +28,21 @@ public class DocumentParser {
      * Returns a array of MoneyCards loaded from file
      */
     public static MoneyCard[] getMoneyCards() {
-        return null;
+        Scanner scan = null;
+        ArrayList<MoneyCard> array = new ArrayList<MoneyCard>();
+        int i = 0;
+
+        try {
+            scan = new Scanner(new File("moneycards.txt"));
+        } catch (FileNotFoundException e) {
+            System.out.println("EXCEPTION: " + e);
+        }
+
+        while (scan.hasNext()) {                                                                   //kollar om det finns en till rad
+            array.add(i, new MoneyCard(scan.nextLine().split(";")[0], Integer.parseInt(scan.nextLine().split(";")[1]))); //lägger till nytt MoneyCard i array
+            i++;
+        }
+        return array.toArray(new MoneyCard[]{});
     }
 
     /**
