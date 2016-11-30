@@ -10,7 +10,6 @@ import lthopoly.Player;
 public class HouseSpace extends BoardSpace {
     private int rent;
     private String description;
-    private int[] array;
     private Player owner;
 
     /**
