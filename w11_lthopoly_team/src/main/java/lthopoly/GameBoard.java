@@ -122,6 +122,7 @@ public class GameBoard {
      * Performs an action for the current player
      */
     public void doAction(int action) {
+        //om husköp uppdatera owner mha HouseSpace.getOwner & setOwner
     }
 
     /**
