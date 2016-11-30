@@ -5,24 +5,34 @@ package lthopoly.cards;
  */
 public class MoveCard {
 
+
+    private String description;
+    private int posAd;
+
+
     /**
      * Creates a new MoveCard
      */
     public MoveCard(String description, int positionAdjustment) {
+
+       this.description = description;
+       this.posAd = positionAdjustment;
+
+
     }
 
     /**
      * Returns the position adjustment
      */
     public int getPositionAdjustment() {
-        return 0;
+        return this.posAd;
     }
 
     /**
      * Returns the description of why the position is adjusted
      */
     public String getDescription() {
-        return null;
+        return this.description;
     }
 
 

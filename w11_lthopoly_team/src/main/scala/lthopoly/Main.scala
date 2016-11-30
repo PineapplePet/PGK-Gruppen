@@ -1,13 +1,18 @@
 package lthopoly
 
 import lthopoly._
+import lthopoly.cards.MoveCard
+
 import scala.collection.JavaConverters._
 
 
 object Main {
   def main(args: Array[String]): Unit = {
-    //Alex-test
 
+
+
+    /*val charlie = new MoveCard("Tjabba fungerar de beoooooor",2)
+    println(charlie.getPositionAdjustment)*/
   }
 
   /**
