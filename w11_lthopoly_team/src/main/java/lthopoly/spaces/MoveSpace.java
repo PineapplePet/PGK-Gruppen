@@ -2,6 +2,7 @@ package lthopoly.spaces;
 
 import lthopoly.GameBoard;
 import lthopoly.cards.MoveCard;
+import java.util.Random;
 
 /**
  * Created by Tank on 4/17/2016.
@@ -21,7 +22,15 @@ public class MoveSpace extends BoardSpace {
      */
     @Override
     public int[] getPossibleActions(GameBoard board) {
-        return board.getPossibleActions();
+        return new int[] {GameBoard.DRAW_CARD};
+    }
+
+    /**
+     * Draws a random MoneyCard from the cards array
+     */
+    private MoveCard drawCard(MoveCard[] cards) {
+        Random generator = new Random();
+        return cards[generator.nextInt(cards.length)];
     }
 
     /**
@@ -29,7 +38,7 @@ public class MoveSpace extends BoardSpace {
      */
     @Override
     public void action(GameBoard board, int action) {
-        board.doAction(action);
+        if (action == GameBoard.DRAW_CARD) drawCard(cards);
     }
 
     /**
@@ -37,6 +46,6 @@ public class MoveSpace extends BoardSpace {
      */
     @Override
     public String toString() {
-        return "Card: " + cards;
+        return "Riskruta";
     }
 }

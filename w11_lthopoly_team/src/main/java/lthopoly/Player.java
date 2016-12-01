@@ -31,7 +31,7 @@ public class Player {
      * Adjusts the players money
      */
     public void adjustMoney(int money) {
-        this.money = money;
+        this.money = this.money + money;
     }
 
     /**

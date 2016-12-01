@@ -3,6 +3,9 @@ package lthopoly.parser;
 import lthopoly.cards.MoneyCard;
 import lthopoly.cards.MoveCard;
 import lthopoly.spaces.BoardSpace;
+import lthopoly.spaces.HouseSpace;
+import lthopoly.spaces.MoneySpace;
+import lthopoly.spaces.MoveSpace;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,10 +19,40 @@ public class DocumentParser {
 
     private Scanner scan;
 
+
+
     /**
      * Returns a ArrayList of Boardspaces loaded from a file
      */
     public static ArrayList<BoardSpace> getBoard() {
+
+        ArrayList<BoardSpace> arrayList = new ArrayList<BoardSpace>();
+        int i = 0;
+
+        try {
+            Scanner scan = new Scanner(new File("board.txt"));
+
+            while (scan.hasNext()) {
+                String line = scan.nextLine();
+
+                if (line.split(";")[0] == "Money") {
+                    arrayList.add(i, new MoneySpace(getMoneyCards()));
+                }
+                else if (line.split(";")[0] == "Move") {
+                    arrayList.add(i, new MoveSpace(getMoveCards()));
+                }
+                else if (line.split(";")[0] == "House") {
+                    arrayList.add(i, new HouseSpace(Integer.parseInt(line.split(";")[1]), line.split(";")[2]));
+                }
+                i++;
+            }
+            return arrayList;
+
+        } catch (FileNotFoundException e) {
+            System.out.println("EXCEPTION: " + e);
+            System.exit(1);
+
+        }
         return null;
     }
 

@@ -4,13 +4,15 @@ package lthopoly.spaces;
 import lthopoly.GameBoard;
 import lthopoly.Player;
 
+
+
 /**
  * Created by Tank on 4/17/2016.
  */
 public class HouseSpace extends BoardSpace {
     private int rent;
     private String description;
-    private Player owner;
+    private Player owner = null;
 
     /**
      * Creates a new housespace with rent and a description
@@ -25,15 +27,13 @@ public class HouseSpace extends BoardSpace {
      */
     @Override
     public int[] getPossibleActions(GameBoard board) {
-        return board.getPossibleActions();
-    }
-
-    public void setOwner(Player newOwner) {
-        this.owner = newOwner;
-    }
-
-    public Player getOwner() {
-        return owner;
+         if (owner == null) {
+             return new int[] {GameBoard.BUY_PROPERTY};
+         }
+         else if (owner != null && owner != board.getCurrentPlayer()) {
+             return new int[] {GameBoard.PAY_RENT};
+         }
+         else return new int[] {};
     }
 
     /**
@@ -41,7 +41,20 @@ public class HouseSpace extends BoardSpace {
      */
     @Override
     public void action(GameBoard board, int action) {
-        board.doAction(action);
+        if (action == GameBoard.BUY_PROPERTY) {
+            owner = board.getCurrentPlayer();
+            if (owner.getMoney() >= rent) {
+                owner.adjustMoney(-rent);
+                System.out.println("Ca-ching! " + owner + " äger nu " + board.getCurrentBoardSpace().toString() + " och är " + rent + "kr fattigare!!!");
+            } else {
+                System.out.println("Du har för lite pengar");
+            }
+        }
+        if (action == GameBoard.PAY_RENT) {
+            board.getCurrentPlayer().adjustMoney(-rent);
+            owner.adjustMoney(rent);
+            System.out.println(board.getCurrentPlayer() + " betalade " + rent "kr i hyra till " + owner);
+        }
     }
 
     /**
