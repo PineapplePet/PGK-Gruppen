@@ -22,6 +22,7 @@ object Main {
     *
     * @return the user's choice as given by promptForInput.
     */
-  def getAction(board: GameBoard): Int = ???
+  def getAction(board: GameBoard): Int = {
 
+  }
 }
