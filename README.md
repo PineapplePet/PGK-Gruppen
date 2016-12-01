@@ -1,7 +1,7 @@
 PGK-Gruppen
 ====================
 
-### Grupplabb: Chords_team
+### Grupplabb: LTHOPOLY-TEAM
 
 ##### Idéer att implementera, skriv namn efter varje förslag när du byggt på den:
 
@@ -9,13 +9,13 @@ PGK-Gruppen
 
 ##### Arbetsfördelning:
 
-Uppgift 1: Ahmed
+Uppgift 1: ???
 
-Uppgift 2: Alex
+Uppgift 2: ???
 
-Uppgift 3: Oliver
+Uppgift 3: ???
 
-Uppgift 4: Niklas
+Uppgift 4: ???
 
 <details>
   <summary>Uppgift5: Hanteras av Daniel</summary>
