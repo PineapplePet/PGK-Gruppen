@@ -15,7 +15,6 @@ import java.util.Scanner;
 public class DocumentParser {
 
     private Scanner scan;
-    File f = new File(DocumentParser.class.getResource("/movecards.txt").getFile());
 
     /**
      * Returns a ArrayList of Boardspaces loaded from a file
