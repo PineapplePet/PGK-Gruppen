@@ -18,7 +18,7 @@ Uppgift 3: ???
 Uppgift 4: ???
 
 <details>
-  <summary>Uppgift5: Hanteras av Daniel</summary>
+  <summary>Uppgift 5: ???</summary>
   <p>Saker att göra:
     <ul>
         <li>Hitta noterna för Smoke weed everyday</li>
