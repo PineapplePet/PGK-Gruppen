@@ -39,8 +39,10 @@ public class DocumentParser {
             System.out.println("EXCEPTION: " + e);
         }
 
-        while (scan.hasNext()) {                                                                   //kollar om det finns en till rad
-            array.add(i, new MoneyCard(scan.nextLine().split(";")[0], Integer.parseInt(scan.nextLine().split(";")[1]))); //lägger till nytt MoneyCard i array
+        //kollar om det finns en till rad
+        //lägger till nytt MoneyCard i arrayList som görs om till Array
+        while (scan.hasNext()) {
+            array.add(i, new MoneyCard(scan.nextLine().split(";")[0], Integer.parseInt(scan.nextLine().split(";")[1])));
             i++;
         }
         return array.toArray(new MoneyCard[]{});
@@ -61,13 +63,11 @@ public class DocumentParser {
             System.out.println("EXCEPTION: " + e);
         }
 
-        while (scan.hasNext()) {                                                                   //kollar om det finns en till rad
-            array.add(i, new MoveCard(scan.nextLine().split(";")[0], Integer.parseInt(scan.nextLine().split(";")[1]))); //lägger till nytt MoveCard i array
+        while (scan.hasNext()) {
+            array.add(i, new MoveCard(scan.nextLine().split(";")[0], Integer.parseInt(scan.nextLine().split(";")[1])));
             i++;
         }
         return array.toArray(new MoveCard[]{});
 
     }
-
-
 }
