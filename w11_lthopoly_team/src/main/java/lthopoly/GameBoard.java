@@ -44,7 +44,7 @@ public class GameBoard {
      */
 
 
-    private void nextTurn() {
+    public void nextTurn() {
 
         if (turn < players.size())
         {
@@ -133,6 +133,8 @@ public class GameBoard {
      * Performs an action for the current player
      */
     public void doAction(int action) {
+
+        getCurrentBoardSpace().action(this, action);
 
     }
 

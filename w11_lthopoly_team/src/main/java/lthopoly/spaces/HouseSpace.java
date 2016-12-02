@@ -3,7 +3,7 @@ package lthopoly.spaces;
 
 import lthopoly.GameBoard;
 import lthopoly.Player;
-
+import lthopoly.TextUI;
 
 
 /**
@@ -28,12 +28,14 @@ public class HouseSpace extends BoardSpace {
     @Override
     public int[] getPossibleActions(GameBoard board) {
          if (owner == null) {
-             return new int[] {GameBoard.BUY_PROPERTY};
+             return new int[] {GameBoard.BUY_PROPERTY, GameBoard.END_TURN, GameBoard.DEFAULT_VIEW, GameBoard.SHOW_BOARD, GameBoard.EXIT_GAME};
          }
-         else if (owner != null && owner != board.getCurrentPlayer()) {
-             return new int[] {GameBoard.PAY_RENT};
+         else if (owner != board.getCurrentPlayer()) {
+             action(board, GameBoard.PAY_RENT);
+             return new int[] {GameBoard.END_TURN, GameBoard.DEFAULT_VIEW, GameBoard.SHOW_BOARD, GameBoard.EXIT_GAME};
          }
-         else return new int[] {};
+         //You own it bro
+         else return new int[] {GameBoard.END_TURN, GameBoard.DEFAULT_VIEW, GameBoard.SHOW_BOARD, GameBoard.EXIT_GAME};
     }
 
     /**
@@ -50,6 +52,11 @@ public class HouseSpace extends BoardSpace {
                 System.out.println("Du har för lite pengar");
             }
         }
+        else if(action == GameBoard.END_TURN) board.nextTurn();
+        else if(action == GameBoard.DEFAULT_VIEW) TextUI.printStatus(board);
+        else if(action == GameBoard.SHOW_BOARD) TextUI.printBoard(board);
+        else if(action == GameBoard.EXIT_GAME) System.exit(1337);
+
         if (action == GameBoard.PAY_RENT) {
             board.getCurrentPlayer().adjustMoney(-rent);
             owner.adjustMoney(rent);

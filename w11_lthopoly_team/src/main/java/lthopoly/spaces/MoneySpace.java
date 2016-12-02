@@ -1,6 +1,7 @@
 package lthopoly.spaces;
 
 import lthopoly.GameBoard;
+import lthopoly.TextUI;
 import lthopoly.cards.MoneyCard;
 import java.util.Random;
 
@@ -24,7 +25,7 @@ public class MoneySpace extends BoardSpace {
      */
     @Override
     public int[] getPossibleActions(GameBoard board) {
-            return new int[] {GameBoard.DRAW_CARD};
+            return new int[] {GameBoard.DRAW_CARD,GameBoard.END_TURN, GameBoard.DEFAULT_VIEW, GameBoard.SHOW_BOARD, GameBoard.EXIT_GAME};
     }
 
     /**
@@ -39,7 +40,17 @@ public class MoneySpace extends BoardSpace {
      * Performs a MoneySpace-related action.
      */
     public void action(GameBoard board, int action) {
+
+
+
         if (action == GameBoard.DRAW_CARD) drawCard(cards);
+        else if(action == GameBoard.END_TURN) board.nextTurn();
+        else if(action == GameBoard.DEFAULT_VIEW) TextUI.printStatus(board);
+        else if(action == GameBoard.SHOW_BOARD) TextUI.printBoard(board);
+        else if(action == GameBoard.EXIT_GAME) System.exit(1337);
+
+
+
     }
 
     /**
