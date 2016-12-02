@@ -53,7 +53,7 @@ public class HouseSpace extends BoardSpace {
         if (action == GameBoard.PAY_RENT) {
             board.getCurrentPlayer().adjustMoney(-rent);
             owner.adjustMoney(rent);
-            System.out.println(board.getCurrentPlayer() + " betalade " + rent "kr i hyra till " + owner);
+            System.out.println(board.getCurrentPlayer() + " betalade " + rent + "kr i hyra till " + owner);
         }
     }
 

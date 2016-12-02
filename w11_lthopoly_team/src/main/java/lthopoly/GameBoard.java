@@ -1,6 +1,8 @@
 package lthopoly;
 
 import lthopoly.spaces.BoardSpace;
+import lthopoly.spaces.HouseSpace;
+import lthopoly.spaces.MoneySpace;
 import lthopoly.spaces.MoveSpace;
 
 import java.util.ArrayList;
@@ -24,9 +26,9 @@ public class GameBoard {
     public static final int EXIT_GAME = 7;
 
 
+
+
     private int[] intArray = new int[] {THROW_DICE, DRAW_CARD, BUY_PROPERTY, PAY_RENT, END_TURN, DEFAULT_VIEW, SHOW_BOARD, EXIT_GAME};
-
-
 
     /**
      * Attributes
@@ -68,8 +70,10 @@ public class GameBoard {
      * GameBoard
      */
     public int[] getPossibleActions() {
-           /////////ej färdig ///////////////////////
-        return intArray;
+
+
+
+        return getCurrentBoardSpace().getPossibleActions(this);
     }
 
     /**
