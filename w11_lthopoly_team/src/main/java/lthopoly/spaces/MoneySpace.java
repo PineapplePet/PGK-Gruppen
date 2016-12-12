@@ -3,6 +3,8 @@ package lthopoly.spaces;
 import lthopoly.GameBoard;
 import lthopoly.TextUI;
 import lthopoly.cards.MoneyCard;
+import lthopoly.cards.MoveCard;
+
 import java.util.Random;
 
 /**
@@ -41,16 +43,24 @@ public class MoneySpace extends BoardSpace {
      */
     public void action(GameBoard board, int action) {
 
-
-
-        if (action == GameBoard.DRAW_CARD) drawCard(cards);
-        else if(action == GameBoard.END_TURN) board.nextTurn();
+        if (action == GameBoard.DRAW_CARD) {
+            if (!board.getCurrentPlayer().hasMoneyCard) {
+                MoneyCard chosenMoneyCard = drawCard(cards);
+                TextUI.addToLog(chosenMoneyCard.getDescription());
+                int cardAdjustment = chosenMoneyCard.getMoney();
+                board.getCurrentPlayer().adjustMoney(cardAdjustment);
+                board.getCurrentPlayer().hasMoneyCard = true;
+                System.out.println(board.getCurrentPlayer() + " har nu " + board.getCurrentPlayer().getMoney() + " kr.");
+            }
+            else { TextUI.addToLog(board.getCurrentPlayer() + " har redan dragit ett pengakort."); }
+        }
+        else if(action == GameBoard.END_TURN) {
+            TextUI.addToLog(board.getCurrentPlayer() + " har avslutat sin runda.");
+            board.nextTurn();
+        }
         else if(action == GameBoard.DEFAULT_VIEW) TextUI.printStatus(board);
         else if(action == GameBoard.SHOW_BOARD) TextUI.printBoard(board);
         else if(action == GameBoard.EXIT_GAME) System.exit(1337);
-
-
-
     }
 
     /**

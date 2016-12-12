@@ -53,6 +53,7 @@ object TextUI {
   /**Appends to log*/
   def addToLog(s: String): Unit = {
     log.append(s)
+    println(s)
   }
 
   

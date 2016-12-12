@@ -3,12 +3,13 @@ package lthopoly
 import java.util
 
 import lthopoly._
-import lthopoly.cards.MoveCard
+import lthopoly.cards.{MoneyCard, MoveCard}
 
 import scala.collection.JavaConverters._
 import java.util.ArrayList
 
 import lthopoly.parser.DocumentParser
+import lthopoly.spaces.MoneySpace
 
 import scala.collection.mutable.ArrayBuffer;
 object Main {
@@ -27,13 +28,24 @@ object Main {
     var diceNum = 0
 
     while(!board.isGameOver){
+      //Spara stats om det är första spelaren
+      if (board.getCurrentPlayer == board.getPlayers.get(0)) {
+        var totalMoney = 0
+        board.getPlayers.toArray().foreach(totalMoney += _.asInstanceOf[Player].getMoney)
+        println("### totalmoney: " + totalMoney)
+        board.addStatistic(totalMoney)
+        println("##### getstat: " + board.getStatistics)
+      }
+
+
+      //Tärning kastas
       diceNum = rand.nextInt(6) + 1
       TextUI.addToLog(board.getCurrentPlayer + " slog en " + diceNum)
       board.getCurrentPlayer.setPosition((board.getCurrentPlayer.getPosition + diceNum) % 16)
 
       val menuLoopPlayer = board.getCurrentPlayer
+      TextUI.updateConsole(board)
       while (menuLoopPlayer == board.getCurrentPlayer) {
-        TextUI.updateConsole(board)
 
         getAction(board) match {
           case i: Int => {
@@ -45,6 +57,7 @@ object Main {
             }
         }
       }
+      board.getCurrentPlayer.hasMoneyCard = false;
     }
   }
 

@@ -47,6 +47,7 @@ public class HouseSpace extends BoardSpace {
             if (owner.getMoney() >= rent) {
                 owner.adjustMoney(-rent);
                 TextUI.addToLog("Ca-ching! " + owner + " äger nu " + board.getCurrentBoardSpace().toString() + " och är " + rent + "kr fattigare!!!");
+                System.out.println(board.getCurrentPlayer() + " har nu " + board.getCurrentPlayer().getMoney() + " kr.");
             } else {
                 TextUI.addToLog("Du har för lite pengar.");
             }

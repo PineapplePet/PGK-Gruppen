@@ -6,6 +6,7 @@ import lthopoly.spaces.HouseSpace;
 import lthopoly.spaces.MoneySpace;
 import lthopoly.spaces.MoveSpace;
 
+import java.nio.IntBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +38,8 @@ public class GameBoard {
     private ArrayList<BoardSpace> spaces;
     private List<Player> players;
     private int turn = 0;
-    private List<Integer> choices;
     private boolean gameOver = false;
+    private ArrayList<Integer> stats = new ArrayList();
 
     /**
      * Creates a new board ready to play
@@ -90,17 +91,13 @@ public class GameBoard {
         int bigCash = 0;
         int currentVonAnka = 0;
 
-        for(int i = 0; i<players.size();i++)
-        {
+        for(int i = 0; i<players.size();i++) {
             if (players.get(i).getMoney()>bigCash) {
                 bigCash = players.get(i).getMoney();
                 currentVonAnka = i;
             }
         }
-
         return players.get(currentVonAnka);
-
-
     }
 
     /**
@@ -147,7 +144,12 @@ public class GameBoard {
      * E.g. list.get(0) is the total amount of money in the game after the first round.
      */
     public ArrayList<Integer> getStatistics() {
-        return null;
+        return stats;
+    }
+    public void addStatistic(int money) {
+        //stats.add(stats.size(), money);
+        stats.add(0, 300);
+        System.out.print("##### " + getStatistics());
     }
 
     /**

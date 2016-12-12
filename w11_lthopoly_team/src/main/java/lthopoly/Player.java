@@ -7,6 +7,7 @@ public class Player {
     private String name;
     private int money;
     private int pos;
+    public Boolean hasMoneyCard;
 
     /**
      * Creates a new player
@@ -15,6 +16,7 @@ public class Player {
         this.name = name;
         this.money = money;
         this.pos = pos;
+        this.hasMoneyCard = false;
     }
 
     public String getName() {
