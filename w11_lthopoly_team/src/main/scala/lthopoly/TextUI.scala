@@ -9,6 +9,7 @@ object TextUI {
 
   /**Creates a string form provided statistics suitable for printing*/
   def plotStatistics(x: Buffer[Int]): String = {
+    println("### plotstatitics")
     if(x.length > 0){
     val min = x.min
     val max = x.max

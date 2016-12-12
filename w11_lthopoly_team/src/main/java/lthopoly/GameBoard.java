@@ -120,7 +120,6 @@ public class GameBoard {
         getCurrentBoardSpace().action(this, action);
         if(currentPlayer.getMoney() < 1){
             TextUI.addToLog("Spelare: " + currentPlayer + " har förlorat!");
-            System.exit(0);
         }
     }
 
@@ -147,9 +146,7 @@ public class GameBoard {
         return stats;
     }
     public void addStatistic(int money) {
-        //stats.add(stats.size(), money);
-        stats.add(0, 300);
-        System.out.print("##### " + getStatistics());
+        stats.add(stats.size(), money);
     }
 
     /**

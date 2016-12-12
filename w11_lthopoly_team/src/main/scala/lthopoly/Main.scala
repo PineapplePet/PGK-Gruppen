@@ -52,13 +52,19 @@ object Main {
             board.doAction(i)
           }
             board.isGameOver match {
-              case true => println(board.getCurrentPlayer + " har förlorat spelet!")
+              case true => {
+                println(board.getCurrentPlayer + " har förlorat spelet!")
+                //skriv ut vinnare med getRichest
+              }
               case false => print("")
             }
         }
       }
       board.getCurrentPlayer.hasMoneyCard = false;
     }
+    println("STATISTIKAVSLUT")
+    val buffer: scala.collection.mutable.Buffer[Int] = board.getStatistics.asScala.map(_.toInt)
+    println(TextUI.plotStatistics(buffer));
   }
 
   /**
