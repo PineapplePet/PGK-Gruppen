@@ -34,16 +34,16 @@ public class DocumentParser {
 
             while (scan.hasNext()) {
                 String line = scan.nextLine();
-
-                if (line.split(";")[0] == "Money") {
+                if (line.split(";")[0].equals("Money")) {
                     arrayList.add(i, new MoneySpace(getMoneyCards()));
                 }
-                else if (line.split(";")[0] == "Move") {
+                else if (line.split(";")[0].equals("Move")) {
                     arrayList.add(i, new MoveSpace(getMoveCards()));
                 }
-                else if (line.split(";")[0] == "House") {
+                else if (line.split(";")[0].equals("House")) {
                     arrayList.add(i, new HouseSpace(Integer.parseInt(line.split(";")[1]), line.split(";")[2]));
                 }
+                else { System.out.println("DEBUG: ELSE"); }
                 i++;
             }
             return arrayList;
@@ -73,8 +73,10 @@ public class DocumentParser {
 
         //kollar om det finns en till rad
         //lägger till nytt MoneyCard i arrayList som görs om till Array
+        String line;
         while (scan.hasNext()) {
-            array.add(i, new MoneyCard(scan.nextLine().split(";")[0], Integer.parseInt(scan.nextLine().split(";")[1])));
+            line = scan.nextLine();
+            array.add(i, new MoneyCard(line.split(";")[0], Integer.parseInt(line.split(";")[1])));
             i++;
         }
         return array.toArray(new MoneyCard[]{});
@@ -85,7 +87,7 @@ public class DocumentParser {
      */
     public static MoveCard[] getMoveCards() {
 
-         Scanner scan = null;
+        Scanner scan = null;
         ArrayList<MoveCard> array = new ArrayList<MoveCard>();
         int i = 0;
 
@@ -94,9 +96,10 @@ public class DocumentParser {
         } catch (FileNotFoundException e) {
             System.out.println("EXCEPTION: " + e);
         }
-
+        String line;
         while (scan.hasNext()) {
-            array.add(i, new MoveCard(scan.nextLine().split(";")[0], Integer.parseInt(scan.nextLine().split(";")[1])));
+            line = scan.nextLine();
+            array.add(i, new MoveCard(line.split(";")[0], Integer.parseInt(line.split(";")[1])));
             i++;
         }
         return array.toArray(new MoveCard[]{});

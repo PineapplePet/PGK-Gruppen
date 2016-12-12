@@ -1,5 +1,6 @@
 package lthopoly;
 
+import chord.textui;
 import lthopoly.spaces.BoardSpace;
 import lthopoly.spaces.HouseSpace;
 import lthopoly.spaces.MoneySpace;
@@ -37,7 +38,7 @@ public class GameBoard {
     private List<Player> players;
     private int turn = 0;
     private List<Integer> choices;
-
+    private boolean gameOver = false;
 
     /**
      * Creates a new board ready to play
@@ -45,8 +46,7 @@ public class GameBoard {
 
 
     public void nextTurn() {
-
-        if (turn < players.size())
+        if (turn < players.size() - 1)
         {
             turn = turn + 1;
         }
@@ -57,11 +57,9 @@ public class GameBoard {
 
 
 
-    public GameBoard(List<Player> players) {
-
+    public GameBoard(List<Player> players, ArrayList<BoardSpace> spaces) {
         this.players = players;
-
-
+        this.spaces = spaces;
     }
 
     /**
@@ -70,9 +68,6 @@ public class GameBoard {
      * GameBoard
      */
     public int[] getPossibleActions() {
-
-
-
         return getCurrentBoardSpace().getPossibleActions(this);
     }
 
@@ -80,15 +75,10 @@ public class GameBoard {
      * Checks whether the game is over or not
      */
     public boolean isGameOver() {
-
-        boolean gameOver = false;
-
-        for(int i = 0; i<players.size();i++)
-        {
-            if (players.get(i).getMoney()<1) {
-                gameOver = true;
+        if (getCurrentPlayer().getMoney() < 1) {
+            gameOver = true;
+            TextUI.addToLog(getCurrentPlayer().getName() + " har förlorat spelet!");
             }
-        }
         return gameOver;
     }
 
@@ -117,25 +107,24 @@ public class GameBoard {
      * Returns a list of all players
      */
     public List<Player> getPlayers() {
-
         return players;
-
     }
 
     /**
      * Returns a list of all BoardSpaces
      */
-    public List<BoardSpace> getBoardSpaces() {
-        return spaces;
-    }
+    public List<BoardSpace> getBoardSpaces() { return spaces; }
 
     /**
      * Performs an action for the current player
      */
     public void doAction(int action) {
-
+        Player currentPlayer = getCurrentPlayer();
         getCurrentBoardSpace().action(this, action);
-
+        if(currentPlayer.getMoney() < 1){
+            TextUI.addToLog("Spelare: " + currentPlayer + " har förlorat!");
+            System.exit(0);
+        }
     }
 
     /**
@@ -150,12 +139,6 @@ public class GameBoard {
      */
     public BoardSpace getCurrentBoardSpace() {
         return spaces.get(getCurrentPlayer().getPosition());
-    }
-
-    /**
-     * Moves the currently active player adjustments spaces forward. Negative adjustment moves the player backwards
-     */
-    public void moveCurrentPlayer(int adjustment) {
     }
 
     /**

@@ -34,7 +34,6 @@ public class HouseSpace extends BoardSpace {
              action(board, GameBoard.PAY_RENT);
              return new int[] {GameBoard.END_TURN, GameBoard.DEFAULT_VIEW, GameBoard.SHOW_BOARD, GameBoard.EXIT_GAME};
          }
-         //You own it bro
          else return new int[] {GameBoard.END_TURN, GameBoard.DEFAULT_VIEW, GameBoard.SHOW_BOARD, GameBoard.EXIT_GAME};
     }
 
@@ -47,12 +46,15 @@ public class HouseSpace extends BoardSpace {
             owner = board.getCurrentPlayer();
             if (owner.getMoney() >= rent) {
                 owner.adjustMoney(-rent);
-                System.out.println("Ca-ching! " + owner + " äger nu " + board.getCurrentBoardSpace().toString() + " och är " + rent + "kr fattigare!!!");
+                TextUI.addToLog("Ca-ching! " + owner + " äger nu " + board.getCurrentBoardSpace().toString() + " och är " + rent + "kr fattigare!!!");
             } else {
-                System.out.println("Du har för lite pengar");
+                TextUI.addToLog("Du har för lite pengar.");
             }
         }
-        else if(action == GameBoard.END_TURN) board.nextTurn();
+        else if(action == GameBoard.END_TURN) {
+            TextUI.addToLog(board.getCurrentPlayer() + " har avslutat sin runda.");
+            board.nextTurn();
+        }
         else if(action == GameBoard.DEFAULT_VIEW) TextUI.printStatus(board);
         else if(action == GameBoard.SHOW_BOARD) TextUI.printBoard(board);
         else if(action == GameBoard.EXIT_GAME) System.exit(1337);
@@ -60,7 +62,7 @@ public class HouseSpace extends BoardSpace {
         if (action == GameBoard.PAY_RENT) {
             board.getCurrentPlayer().adjustMoney(-rent);
             owner.adjustMoney(rent);
-            System.out.println(board.getCurrentPlayer() + " betalade " + rent + "kr i hyra till " + owner);
+            TextUI.addToLog(board.getCurrentPlayer() + " betalade " + rent + "kr i hyra till " + owner);
         }
     }
 
@@ -69,7 +71,9 @@ public class HouseSpace extends BoardSpace {
      */
     @Override
     public String toString() {
-        return "HouseName: " + this.description + " Owner: " + this.owner.getName() + " Rent: " + this.rent;
+        String oWner;
+        if (this.owner != null) oWner = "[" + this.owner.getName() + "]";
+        else oWner = "";
+        return this.description + oWner + "(" + this.rent + ")";
     }
-
 }

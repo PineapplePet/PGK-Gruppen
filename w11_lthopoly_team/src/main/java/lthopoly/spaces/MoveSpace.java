@@ -40,22 +40,11 @@ public class MoveSpace extends BoardSpace {
     @Override
     public void action(GameBoard board, int action) {
 
-
             if (action == GameBoard.DRAW_CARD) drawCard(cards);
             else if(action == GameBoard.END_TURN) board.nextTurn();
             else if(action == GameBoard.DEFAULT_VIEW) TextUI.printStatus(board);
             else if(action == GameBoard.SHOW_BOARD) TextUI.printBoard(board);
             else if(action == GameBoard.EXIT_GAME) System.exit(1337);
-
-
-
-
-
-
-
-
-
-
 
     }
 

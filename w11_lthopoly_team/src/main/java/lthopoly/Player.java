@@ -46,7 +46,7 @@ public class Player {
      */
     @Override
     public String toString() {
-        return "Name: " + this.name + " Money: " + this.money + " Position: " + this.pos;
+        return this.name;
     }
 
     /**
