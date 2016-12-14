@@ -17,11 +17,11 @@ object Main {
 
     val players = new java.util.ArrayList[Player]
 
-    players.add(new Player("Player1",200,0))
-    players.add(new Player("Player2",200,0))
-    players.add(new Player("Player3",200,0))
-    players.add(new Player("Player4",200,0))
-    players.add(new Player("Player5",200,0))
+    players.add(new Player("Player1",50,0))
+    players.add(new Player("Player2",50,0))
+    players.add(new Player("Player3",50,0))
+    players.add(new Player("Player4",50,0))
+    players.add(new Player("Player5",50,0))
 
     val board = new GameBoard(players, DocumentParser.getBoard)
     val rand = new scala.util.Random
@@ -61,8 +61,7 @@ object Main {
       }
       board.getCurrentPlayer.hasMoneyCard = false;
     }
-    println("Vinnaren är " + board.getRichestPlayer)
-    println("STATISTIKAVSLUT")
+    println("Vinnaren är: " + board.getRichestPlayer)
     val buffer: scala.collection.mutable.Buffer[Int] = board.getStatistics.asScala.map(_.toInt)
     println(TextUI.plotStatistics(buffer))
   }
