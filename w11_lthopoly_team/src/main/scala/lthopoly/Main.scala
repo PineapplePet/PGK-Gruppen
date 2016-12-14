@@ -40,7 +40,7 @@ object Main {
 
       //Tärning kastas
       diceNum = rand.nextInt(6) + 1
-      TextUI.addToLog(board.getCurrentPlayer + " slog en " + diceNum)
+      TextUI.addToLog(board.getCurrentPlayer + " slog en " + diceNum + ":a")
       board.getCurrentPlayer.setPosition((board.getCurrentPlayer.getPosition + diceNum) % 16)
 
       val menuLoopPlayer = board.getCurrentPlayer

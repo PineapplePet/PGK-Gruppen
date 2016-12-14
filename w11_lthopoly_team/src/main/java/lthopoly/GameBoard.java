@@ -78,7 +78,6 @@ public class GameBoard {
     public boolean isGameOver() {
         if (getCurrentPlayer().getMoney() < 1) {
             gameOver = true;
-            TextUI.addToLog(getCurrentPlayer().getName() + " har förlorat spelet!");
             }
         return gameOver;
     }
@@ -116,11 +115,7 @@ public class GameBoard {
      * Performs an action for the current player
      */
     public void doAction(int action) {
-        Player currentPlayer = getCurrentPlayer();
         getCurrentBoardSpace().action(this, action);
-        if(currentPlayer.getMoney() < 1){
-            TextUI.addToLog("Spelare: " + currentPlayer + " har förlorat!");
-        }
     }
 
     /**
