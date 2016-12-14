@@ -1,4 +1,5 @@
 package lthopoly
+import scala.io.StdIn.readLine
 
 import java.util
 
@@ -17,17 +18,17 @@ object Main {
 
     val players = new java.util.ArrayList[Player]
 
-    players.add(new Player("Player1",50,0))
-    players.add(new Player("Player2",50,0))
-    players.add(new Player("Player3",50,0))
-    players.add(new Player("Player4",50,0))
-    players.add(new Player("Player5",50,0))
+    players.add(new Player(readLine("Välj namn för spelare 1: "),50,0))
+    players.add(new Player("A",50,0))
+    players.add(new Player("B",50,0))
+    players.add(new Player("C",50,0))
+    players.add(new Player("D",50,0))
 
     val board = new GameBoard(players, DocumentParser.getBoard)
     val rand = new scala.util.Random
     var diceNum = 0
 
-    while(!board.isGameOver){
+    while(!board.isGameOver) {
       //Spara stats om det är första spelaren
       if (board.getCurrentPlayer == board.getPlayers.get(0)) {
         var totalMoney = 0
@@ -45,7 +46,7 @@ object Main {
 
       val menuLoopPlayer = board.getCurrentPlayer
       TextUI.updateConsole(board)
-      while (menuLoopPlayer == board.getCurrentPlayer) {
+      while (menuLoopPlayer == board.getCurrentPlayer && !board.isGameOver) {
 
         getAction(board) match {
           case i: Int =>
@@ -61,6 +62,7 @@ object Main {
       }
       board.getCurrentPlayer.hasMoneyCard = false;
     }
+    TextUI.printStatus(board)
     println("Vinnaren är: " + board.getRichestPlayer)
     val buffer: scala.collection.mutable.Buffer[Int] = board.getStatistics.asScala.map(_.toInt)
     println(TextUI.plotStatistics(buffer))

@@ -40,10 +40,10 @@ public class MoveSpace extends BoardSpace {
     @Override
     public void action(GameBoard board, int action) {
             if (action == GameBoard.DRAW_CARD) {
-                MoveCard chosenMoveCard = drawCard(cards);
-                int cardSteps = chosenMoveCard.getPositionAdjustment();
-                board.getCurrentPlayer().setPosition((board.getCurrentPlayer().getPosition() + cardSteps) % 16);
-                TextUI.addToLog(chosenMoveCard.getDescription());
+                    MoveCard chosenMoveCard = drawCard(cards);
+                    int cardSteps = chosenMoveCard.getPositionAdjustment();
+                    board.getCurrentPlayer().setPosition((board.getCurrentPlayer().getPosition() + cardSteps) % 16);
+                    TextUI.addToLog(chosenMoveCard.getDescription());
             }
             else if(action == GameBoard.END_TURN) {
                 TextUI.addToLog(board.getCurrentPlayer() + " har avslutat sin runda.");

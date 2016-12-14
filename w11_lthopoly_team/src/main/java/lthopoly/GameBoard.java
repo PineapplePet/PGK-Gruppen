@@ -76,9 +76,11 @@ public class GameBoard {
      * Checks whether the game is over or not
      */
     public boolean isGameOver() {
-        if (getCurrentPlayer().getMoney() < 1) {
-            gameOver = true;
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).getMoney() < 0) {
+                gameOver = true;
             }
+        }
         return gameOver;
     }
 

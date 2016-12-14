@@ -27,7 +27,7 @@ public class MoneySpace extends BoardSpace {
      */
     @Override
     public int[] getPossibleActions(GameBoard board) {
-            return new int[] {GameBoard.DRAW_CARD,GameBoard.END_TURN, GameBoard.DEFAULT_VIEW, GameBoard.SHOW_BOARD, GameBoard.EXIT_GAME};
+        return new int[] {GameBoard.DRAW_CARD,GameBoard.END_TURN, GameBoard.DEFAULT_VIEW, GameBoard.SHOW_BOARD, GameBoard.EXIT_GAME};
     }
 
     /**
@@ -50,9 +50,9 @@ public class MoneySpace extends BoardSpace {
                 int cardAdjustment = chosenMoneyCard.getMoney();
                 board.getCurrentPlayer().adjustMoney(cardAdjustment);
                 board.getCurrentPlayer().hasMoneyCard = true;
-                System.out.println(board.getCurrentPlayer() + " har nu " + board.getCurrentPlayer().getMoney() + " kr.");
+                System.out.println(" " + board.getCurrentPlayer() + " har nu " + board.getCurrentPlayer().getMoney() + " kr.");
             }
-            else { TextUI.addToLog(board.getCurrentPlayer() + " har redan dragit ett pengakort."); }
+            else { TextUI.addToLog(" " + board.getCurrentPlayer() + " har redan dragit ett pengakort."); }
         }
         else if(action == GameBoard.END_TURN) {
             TextUI.addToLog(board.getCurrentPlayer() + " har avslutat sin runda.");

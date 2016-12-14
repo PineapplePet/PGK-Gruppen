@@ -46,10 +46,10 @@ public class HouseSpace extends BoardSpace {
             owner = board.getCurrentPlayer();
             if (owner.getMoney() >= rent) {
                 owner.adjustMoney(-rent);
-                TextUI.addToLog("Ca-ching! " + owner + " äger nu " + board.getCurrentBoardSpace().toString() + " och är " + rent + "kr fattigare!!!");
-                System.out.println(board.getCurrentPlayer() + " har nu " + board.getCurrentPlayer().getMoney() + " kr.");
+                TextUI.addToLog(" Ca-ching! " + owner + " äger nu " + board.getCurrentBoardSpace().toString() + " och är " + rent + "kr fattigare!!!");
+                System.out.println(" " + board.getCurrentPlayer() + " har nu " + board.getCurrentPlayer().getMoney() + " kr.");
             } else {
-                TextUI.addToLog("Du har för lite pengar.");
+                TextUI.addToLog(" Du har för lite pengar.");
             }
         }
         else if(action == GameBoard.END_TURN) {
@@ -63,7 +63,7 @@ public class HouseSpace extends BoardSpace {
         if (action == GameBoard.PAY_RENT) {
             board.getCurrentPlayer().adjustMoney(-rent);
             owner.adjustMoney(rent);
-            TextUI.addToLog(board.getCurrentPlayer() + " betalade " + rent + "kr i hyra till " + owner);
+            TextUI.addToLog(" " + board.getCurrentPlayer() + " betalade " + rent + "kr i hyra till " + owner);
         }
     }
 
