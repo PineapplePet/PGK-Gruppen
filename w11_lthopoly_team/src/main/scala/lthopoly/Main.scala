@@ -18,11 +18,9 @@ object Main {
 
     val players = new java.util.ArrayList[Player]
 
-    players.add(new Player(readLine("Välj namn för spelare 1: "),50,0))
-    players.add(new Player("A",50,0))
-    players.add(new Player("B",50,0))
-    players.add(new Player("C",50,0))
-    players.add(new Player("D",50,0))
+    players.add(new Player(readLine("Välj namn för spelare 1: "),200,0))
+    players.add(new Player(readLine("Välj namn för spelare 2: "),200,0))
+    players.add(new Player(readLine("Välj namn för spelare 3: "),200,0))
 
     val board = new GameBoard(players, DocumentParser.getBoard)
     val rand = new scala.util.Random
