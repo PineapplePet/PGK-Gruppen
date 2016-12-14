@@ -17,11 +17,11 @@ object Main {
 
     val players = new java.util.ArrayList[Player]
 
-    players.add(new Player("Player1",50,0))
-    players.add(new Player("Player2",50,0))
-    players.add(new Player("Player3",50,0))
-    players.add(new Player("Player4",50,0))
-    players.add(new Player("Player5",50,0))
+    players.add(new Player("Player1",200,0))
+    players.add(new Player("Player2",200,0))
+    players.add(new Player("Player3",200,0))
+    players.add(new Player("Player4",200,0))
+    players.add(new Player("Player5",200,0))
 
     val board = new GameBoard(players, DocumentParser.getBoard)
     val rand = new scala.util.Random
@@ -48,13 +48,12 @@ object Main {
       while (menuLoopPlayer == board.getCurrentPlayer) {
 
         getAction(board) match {
-          case i: Int => {
+          case i: Int =>
             board.doAction(i)
-          }
             board.isGameOver match {
               case true => {
                 println(board.getCurrentPlayer + " har förlorat spelet!")
-                //skriv ut vinnare med getRichest
+                board.nextTurn()
               }
               case false => print("")
             }
@@ -62,9 +61,10 @@ object Main {
       }
       board.getCurrentPlayer.hasMoneyCard = false;
     }
+    println("Vinnaren är " + board.getRichestPlayer)
     println("STATISTIKAVSLUT")
     val buffer: scala.collection.mutable.Buffer[Int] = board.getStatistics.asScala.map(_.toInt)
-    println(TextUI.plotStatistics(buffer));
+    println(TextUI.plotStatistics(buffer))
   }
 
   /**
