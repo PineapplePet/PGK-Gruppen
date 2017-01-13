@@ -10,6 +10,7 @@ import java.util.Random;
  */
 public class MoveSpace extends BoardSpace {
     private MoveCard[] cards;
+    private Random generator = new Random();
 
     /**
      * Creates a new MoveSpace. When landing on this space a card from the card array will be drawn
@@ -27,10 +28,9 @@ public class MoveSpace extends BoardSpace {
     }
 
     /**
-     * Draws a random MoneyCard from the cards array
+     * Draws a random MoveCard from the cards array
      */
     private MoveCard drawCard(MoveCard[] cards) {
-        Random generator = new Random();
         return cards[generator.nextInt(cards.length)];
     }
 

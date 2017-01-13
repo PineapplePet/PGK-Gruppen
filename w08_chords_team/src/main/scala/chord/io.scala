@@ -29,6 +29,6 @@ object io {
     Files.write(Paths.get(fileName), data.getBytes(UTF_8))
   } match {
     case Success(_) => println(s"Saved to file: $fileName")
-    case Failure(e) => println(s"Error: $e") 
+    case Failure(e) => println(s"Error: $e") //Om error skriv ut error och vilket error
   }
 }

@@ -73,7 +73,7 @@ public class GameBoard {
     }
 
     /**
-     * Checks whether the game is over or not
+     * Checks whether the game is over or not.. GameOver when one player at his/her end of turn has below 0 in cash.
      */
     public boolean isGameOver() {
         for (int i = 0; i < players.size(); i++) {
@@ -150,19 +150,19 @@ public class GameBoard {
      * String Representation of the GameBoard
      */
     public String toString() {
-        StringBuilder out = new StringBuilder();
-        out.append("Rutans Namn [Ägare] (Pris/Hyra) (Spelare, Pengar)*\n");
-        out.append("--------------------------------------------------\n");
+        StringBuilder sb = new StringBuilder();
+        sb.append("Rutans Namn [Ägare] (Pris/Hyra) (Spelare, Pengar)*\n");
+        sb.append("--------------------------------------------------\n");
         for (int i = 0; i < spaces.size(); i++) {
 
-            out.append(spaces.get(i).toString() + " ");
+            sb.append(spaces.get(i).toString() + " ");
 
             for (int j = 0; j < players.size(); j++)
                 if (players.get(j).getPosition() == i)
-                    out.append("(" + players.get(j).toString() + "," + players.get(j).getMoney() + ")");//add name to row
+                    sb.append("(" + players.get(j).toString() + "," + players.get(j).getMoney() + ")");//add name to row
 
-            out.append("\n");
+            sb.append("\n");
         }
-        return out.toString();
+        return sb.toString();
     }
 }

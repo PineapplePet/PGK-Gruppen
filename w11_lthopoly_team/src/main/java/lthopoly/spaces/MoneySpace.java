@@ -12,14 +12,13 @@ import java.util.Random;
  */
 public class MoneySpace extends BoardSpace {
     private MoneyCard[] cards;
-    private MoneyCard myCard;
+    private Random generator = new Random();
 
     /**
-     * Creates a new MoneySpace. When landing on this space a card from the card array will be drawn
+     * Creates a new MoneySpace.
      */
     public MoneySpace(MoneyCard[] cards) {
         this.cards = cards;
-        myCard = drawCard(cards);
     }
 
     /**
@@ -34,7 +33,6 @@ public class MoneySpace extends BoardSpace {
      * Draws a random MoneyCard from the cards array
      */
     private MoneyCard drawCard(MoneyCard[] cards) {
-        Random generator = new Random();
         return cards[generator.nextInt(cards.length)];
     }
 
